@@ -13,35 +13,48 @@
   };
 
   /* --------------------------------------------------------------------------
-     1. PLAYER MULTIMÍDIA DE MÚSICAS & CLIPES (JUKEBOX)
+     1. PLAYER MULTIMÍDIA NATIVO LOCAL (100% OFFLINE, SEM ERROS)
      -------------------------------------------------------------------------- */
-  class VideoJukebox {
+  class LocalVideoJukebox {
     constructor() {
-      this.iframe = document.querySelector('#videoPlayerFrame');
+      this.video = document.querySelector('#nativeVideoPlayer');
+      this.source = document.querySelector('#videoSource');
       this.titleEl = document.querySelector('#nowPlayingTitle');
       this.artistEl = document.querySelector('#nowPlayingArtist');
       this.buttons = document.querySelectorAll('.music-choice-btn');
 
-      if (!this.iframe || !this.buttons.length) return;
+      if (!this.video || !this.buttons.length) return;
       this.init();
     }
 
     init() {
       this.buttons.forEach((btn) => {
         btn.addEventListener('click', () => {
-          const ytId = btn.getAttribute('data-yt-id');
+          const src = btn.getAttribute('data-src');
           const title = btn.getAttribute('data-title');
           const artist = btn.getAttribute('data-artist');
 
-          this.play(ytId, title, artist, btn);
+          this.play(src, title, artist, btn);
         });
       });
     }
 
-    play(ytId, title, artist, activeBtn) {
-      if (!ytId) return;
+    play(src, title, artist, activeBtn) {
+      if (!src) return;
 
-      this.iframe.src = `https://www.youtube.com/embed/${ytId}?autoplay=1&enablejsapi=1&rel=0`;
+      this.video.pause();
+      if (this.source) {
+        this.source.src = src;
+      } else {
+        this.video.src = src;
+      }
+      this.video.load();
+      
+      const playPromise = this.video.play();
+      if (playPromise !== undefined) {
+        playPromise.catch(() => {});
+      }
+
       if (this.titleEl) this.titleEl.textContent = title;
       if (this.artistEl) this.artistEl.textContent = artist;
 
@@ -372,7 +385,7 @@
     }
 
     new LightboxManager();
-    new VideoJukebox();
+    new LocalVideoJukebox();
     new RelationshipCounter(APP_CONFIG.startDate);
     new LoveLetterManager();
     new NavigationManager();
