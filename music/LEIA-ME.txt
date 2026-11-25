@@ -1,0 +1,8 @@
+Coloque aqui os arquivos de musica em MP3.
+
+Sugestoes de nomes ja configurados no codigo:
+- song1.mp3 para a musica principal
+- memoria-01.mp3, memoria-02.mp3, memoria-03.mp3 para os cartoes
+- star-soft.mp3 para o som suave das estrelas
+
+Se usar outros nomes, altere os caminhos em index.html e js/script.js.

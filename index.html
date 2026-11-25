@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Para o amor da minha vida</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <canvas id="particlesCanvas" aria-hidden="true"></canvas>
+
+  <!--
+    MUSICAS:
+    Crie/adicione seus arquivos MP3 dentro da pasta /music.
+    Musica principal sugerida: music/song1.mp3
+    Musicas das memorias: music/memoria-01.mp3, music/memoria-02.mp3...
+    Sons suaves: music/star-soft.mp3
+  -->
+  <audio id="backgroundMusic" src="music/song1.mp3" loop preload="auto"></audio>
+  <audio id="memoryMusic" preload="auto"></audio>
+  <audio id="starSound" src="music/star-soft.mp3" preload="auto"></audio>
+
+  <div class="opening" id="opening">
+    <div class="opening__glow"></div>
+    <p class="eyebrow">Um presente simples, nosso</p>
+    <h1>Para o amor da minha vida ❤️</h1>
+    <button class="primary-button" id="enterButton" type="button">Entrar na nossa história</button>
+  </div>
+
+  <header class="topbar">
+    <a href="#inicio" class="brand">Nosso Amor</a>
+    <nav aria-label="Navegacao principal">
+      <a href="#historia">História</a>
+      <a href="#galeria">Galeria</a>
+      <a href="#carta">Carta</a>
+      <a href="#final">Final</a>
+    </nav>
+    <button class="music-toggle" id="musicToggle">🎵 Ligar/Desligar Música</button>
+  </header>
+
+  <main id="inicio">
+    <section class="hero section">
+      <div class="hero__content reveal">
+        <p class="eyebrow">Dia do amor da minha vida</p>
+        <h2>Um lugar calmo para guardar o que a gente viveu.</h2>
+        <p>Fotos, pequenos instantes, uma carta escrita por você e algumas memórias para abrir sem pressa.</p>
+        <a class="ghost-button" href="#historia">Começar a viagem</a>
+      </div>
+      <div class="polaroid-cloud" aria-hidden="true">
+        <!-- FOTOS POLAROID: troque os textos ou use imagens em CSS/HTML se desejar. -->
+        <div class="polaroid p1"><img src="images/FOTO_01.jpeg" alt="Nossa foto"><small>Fotogênicos</small></div>
+        <div class="polaroid p2"><img src="images/FOTO_02.jpeg" alt="Seu sorriso"><small>Seu sorriso</small></div>
+        <div class="polaroid p3"><img src="images/FOTO_03.jpeg" alt="Dorme linda demais"><small>Dorme chique</small></div>
+      </div>
+    </section>
+
+    <section class="section timeline-section" id="historia">
+      <div class="section-heading reveal">
+        <p class="eyebrow">Nossa linha do tempo</p>
+        <h2>Nossa História</h2>
+        <p>Cada parada desta linha do tempo guarda um pedacinho do caminho que nos trouxe até aqui.</p>
+      </div>
+      <div class="timeline">
+        <!--
+          FOTOS DA TIMELINE:
+          Substitua os placeholders por imagens reais dentro de /images.
+          Exemplo: troque data-photo="FOTO_01" por data-photo="images/foto-01.jpg"
+          e, se quiser, substitua o texto visivel FOTO_01 por uma tag <img src="images/foto-01.jpg" alt="...">.
+        -->
+        <article class="timeline-item reveal">
+          <div class="photo-placeholder"><img src="images/NH_01.jpg" alt="O dia em que tudo começou"></div>
+          <div class="timeline-card">
+            <time>25/11/2023</time>
+            <h3>O dia em que tudo começou</h3>
+            <p>Foi nesse dia que começa uma nova parte da história da minha vida.</p>
+          </div>
+        </article>
+        <article class="timeline-item reveal">
+          <div class="photo-placeholder"><img src="images/NH_02.jpg" alt="Primeira aventura juntos"></div>
+          <div class="timeline-card">
+            <time>NAO LEMBRO</time>
+            <h3>Primeira aventura juntos</h3>
+            <p>Depois dessa viagem, percebi que não há mais planos sem você. Peça essencial nos meus momentos</p>
+          </div>
+        </article>
+        <article class="timeline-item reveal">
+          <div class="photo-placeholder"><img src="images/NH_03.jpg" alt="Quando eu soube"></div>
+          <div class="timeline-card">
+            <time>NAO LEMBRO</time>
+            <h3>Quando eu soube</h3>
+            <p>Quando me dei conta que teria uma parceira maravilhosa pro resto da vida.</p>
+          </div>
+        </article>
+        <article class="timeline-item reveal">
+          <div class="photo-placeholder"><img src="images/NH_04.jpg" alt="Nosso presente"></div>
+          <div class="timeline-card">
+            <time>NAO LEMBRO</time>
+            <h3>Nossa Viagem</h3>
+            <p>A primeira de muitas das nossas viagens em resorts...</p>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="section gallery-section" id="galeria">
+      <div class="section-heading reveal">
+        <p class="eyebrow">Galeria</p>
+        <h2>Galeria Mágica</h2>
+        <p>Toque em uma lembrança para abrir em tela cheia.</p>
+      </div>
+      <div class="gallery-grid">
+        <!--
+          GALERIA:
+          Para usar fotos reais, coloque os arquivos em /images e altere data-image.
+          Exemplo: data-image="images/galeria-01.jpg".
+        -->
+        <button class="gallery-item reveal" data-image="images/GM_01.jpeg" data-message="O dia em que tudo começou."><span>FOTO_05</span></button>
+        <button class="gallery-item reveal" data-image="FOTO_06" data-message="Meu lugar favorito sempre será ao seu lado."><span>FOTO_06</span></button>
+        <button class="gallery-item reveal" data-image="FOTO_07" data-message="Seu sorriso transforma qualquer dia comum."><span>FOTO_07</span></button>
+        <button class="gallery-item reveal" data-image="FOTO_08" data-message="Com você, ate o silencio vira companhia perfeita."><span>FOTO_08</span></button>
+        <button class="gallery-item reveal" data-image="FOTO_09" data-message="Uma memoria pequena, um amor imenso."><span>FOTO_09</span></button>
+        <button class="gallery-item reveal" data-image="FOTO_10" data-message="Eu viveria esse momento de novo mil vezes."><span>FOTO_10</span></button>
+      </div>
+    </section>
+
+    <section class="section memories-section" id="musicas">
+      <div class="section-heading reveal">
+        <p class="eyebrow">Memórias com trilha</p>
+        <h2>Música das Memórias</h2>
+        <p>Cada cartão abre uma lembrança com a trilha sonora dela.</p>
+      </div>
+      <div class="memory-grid">
+        <!--
+          MEMORIAS:
+          Troque data-image por imagens reais e data-song por arquivos MP3 em /music.
+          Exemplo: data-song="music/memoria-01.mp3".
+        -->
+        <button class="memory-card reveal" data-title="MEMORIA_01" data-image="FOTO_MEMORIA_01" data-song="music/memoria-01.mp3" data-text="A lembrança que me faz sorrir sem perceber.">
+          <div class="photo-placeholder">FOTO_MEMORIA_01</div>
+          <h3>MEMORIA_01</h3>
+          <p>A lembrança que me faz sorrir sem perceber.</p>
+        </button>
+        <button class="memory-card reveal" data-title="MEMORIA_02" data-image="FOTO_MEMORIA_02" data-song="music/memoria-02.mp3" data-text="Um instante simples que ficou gigante dentro de mim.">
+          <div class="photo-placeholder">FOTO_MEMORIA_02</div>
+          <h3>MEMORIA_02</h3>
+          <p>Um instante simples que ficou gigante dentro de mim.</p>
+        </button>
+        <button class="memory-card reveal" data-title="MEMORIA_03" data-image="FOTO_MEMORIA_03" data-song="music/memoria-03.mp3" data-text="A prova de que felicidade tambem mora nos detalhes.">
+          <div class="photo-placeholder">FOTO_MEMORIA_03</div>
+          <h3>MEMORIA_03</h3>
+          <p>A prova de que felicidade tambem mora nos detalhes.</p>
+        </button>
+      </div>
+    </section>
+
+    <section class="section letter-section" id="carta">
+      <div class="section-heading reveal">
+        <p class="eyebrow">Carta pessoal</p>
+        <h2>Escreva com as suas palavras.</h2>
+      </div>
+      <div class="letter-composer reveal">
+        <div class="letter-editor">
+          <label for="loveLetterInput">Sua carta</label>
+          <!-- ESCREVA A CARTA AQUI OU DIRETAMENTE NO SITE. O TEXTO FICA SALVO NESTE NAVEGADOR. -->
+          <textarea id="loveLetterInput" rows="14" placeholder="Meu amor, hoje eu queria te dizer..."></textarea>
+          <div class="letter-actions">
+            <button class="primary-button" id="saveLetter" type="button">Salvar carta</button>
+            <button class="ghost-button" id="clearLetter" type="button">Limpar</button>
+          </div>
+        </div>
+        <article class="letter-preview" id="loveLetterPreview">
+          Sua carta aparecerá aqui enquanto você escreve.
+        </article>
+      </div>
+    </section>
+
+    <section class="section counter-section" id="contador">
+      <div class="section-heading reveal">
+        <p class="eyebrow">Tempo juntos</p>
+        <h2>Contador de Tempo Juntos</h2>
+        <p>No arquivo JavaScript, altere <strong>const dataInicio = "AAAA-MM-DD";</strong> para a data de vocês.</p>
+      </div>
+      <div class="counter-grid reveal">
+        <div><strong id="days">0</strong><span>Dias</span></div>
+        <div><strong id="hours">0</strong><span>Horas</span></div>
+        <div><strong id="minutes">0</strong><span>Minutos</span></div>
+        <div><strong id="seconds">0</strong><span>Segundos</span></div>
+      </div>
+    </section>
+
+    <section class="section sky-section" id="ceu">
+      <div class="section-heading reveal">
+        <p class="eyebrow">Céu das memórias</p>
+        <h2>Céu das Memórias</h2>
+        <p>Cada estrela guarda um momento nosso.</p>
+      </div>
+      <div class="memory-sky reveal" id="memorySky">
+        <!-- As estrelas sao criadas em js/script.js. Edite o array skyMemories para trocar fotos, textos e sons. -->
+      </div>
+    </section>
+
+    <section class="section extras-section" id="extras">
+      <div class="section-heading reveal">
+        <p class="eyebrow">Extras Surpreendentes</p>
+        <h2>Pequenos mundos dentro do nosso mundo</h2>
+      </div>
+      <div class="extras-grid">
+        <div class="book reveal">
+          <div class="book-page page-one">Capítulo 1<br><span>Quando nossos caminhos se cruzaram.</span></div>
+          <div class="book-page page-two">Capítulo 2<br><span>Quando o amor virou casa.</span></div>
+        </div>
+        <div class="map-card reveal">
+          <h3>Mapa dos lugares especiais</h3>
+          <!-- MAPA: edite os nomes abaixo com lugares reais do casal. -->
+          <div class="map">
+            <button style="--x:24%;--y:36%">Lugar 1</button>
+            <button style="--x:62%;--y:48%">Lugar 2</button>
+            <button style="--x:42%;--y:70%">Lugar 3</button>
+          </div>
+        </div>
+        <div class="capsule reveal">
+          <h3>Cápsula do tempo</h3>
+          <!-- CAPSULA: edite estas mensagens para o futuro. -->
+          <p>Para nós daqui a um ano: que a gente continue rindo das mesmas bobagens e criando novas memórias.</p>
+          <p>Para nós daqui a dez anos: que este amor ainda seja nosso lugar favorito.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section final-section" id="final">
+      <div class="final-content reveal">
+        <p>Se eu pudesse escolher novamente, escolheria você infinitas vezes.</p>
+        <h2>Feliz Dia dos Namorados ❤️</h2>
+        <button class="primary-button" id="heartBurst">Encher a tela de amor</button>
+      </div>
+      <div class="surprise-video reveal">
+        <h3>Vídeo final surpresa</h3>
+        <!--
+          VIDEO FINAL:
+          Coloque um video curto seu em /video/surpresa.mp4.
+          Se preferir outro nome, altere o src abaixo.
+        -->
+        <video controls poster="" preload="metadata">
+          <source src="video/surpresa.mp4" type="video/mp4">
+          Seu navegador nao suporta video HTML5.
+        </video>
+      </div>
+    </section>
+  </main>
+
+  <button class="secret-button" id="secretButton" aria-label="Mensagem secreta"></button>
+
+  <div class="modal" id="modal" aria-hidden="true">
+    <div class="modal__backdrop" data-close-modal></div>
+    <div class="modal__content" role="dialog" aria-modal="true" aria-label="Memoria aberta">
+      <button class="modal__close" data-close-modal>Fechar</button>
+      <div class="modal__image" id="modalImage">FOTO</div>
+      <h3 id="modalTitle"></h3>
+      <p id="modalText"></p>
+    </div>
+  </div>
+
+  <script src="js/script.js"></script>
+</body>
+</html>

@@ -1,0 +1,9 @@
+Coloque aqui as fotos do casal.
+
+Sugestoes de nomes para facilitar:
+- foto-01.jpg, foto-02.jpg, foto-03.jpg para a timeline
+- galeria-01.jpg, galeria-02.jpg para a galeria
+- memoria-01.jpg, memoria-02.jpg para os cartoes de memoria
+- ceu-01.jpg, ceu-02.jpg para o ceu das memorias
+
+Depois, abra index.html e js/script.js e substitua os placeholders FOTO_01, FOTO_02, etc.
