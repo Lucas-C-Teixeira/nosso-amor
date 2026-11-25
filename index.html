@@ -4,47 +4,44 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Nossos Três Anos — Para o Amor da Minha Vida</title>
-  <meta name="description" content="Uma celebração dos nossos três anos de amor, memórias e cumplicidade. Um espaço digital exclusivo e eterno.">
-  <meta name="theme-color" content="#421220">
+  <meta name="description" content="Três anos celebrando o nosso amor, nossas viagens e uma história que se faz eterna a cada dia.">
+  <meta name="theme-color" content="#34111A">
 
   <!-- Tipografia Editorial & Real: Playfair Display, Cinzel e Plus Jakarta Sans -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,400;1,600&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body class="no-scroll">
 
-  <!-- Canvas ambiente de partículas douradas suaves (desativável por prefers-reduced-motion) -->
+  <!-- Canvas ambiente de partículas douradas suaves -->
   <canvas id="ambientCanvas" aria-hidden="true"></canvas>
 
-  <!-- Elemento de áudio central para a trilha sonora -->
+  <!-- Player central de áudio HTML5 -->
   <audio id="mainAudioPlayer" preload="none"></audio>
 
   <!-- ============================================================
-       ABERTURA SOLENE (ENTRADA DO ESPAÇO)
+       ABERTURA SOLENE
        ============================================================ -->
-  <aside class="royal-opening" id="royalOpening" aria-label="Boas-vindas à nossa história">
+  <aside class="royal-opening" id="royalOpening" aria-label="Entrada solene">
     <div class="royal-opening__aura" aria-hidden="true"></div>
     <div class="royal-opening__crest" aria-hidden="true">
-      <svg width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <svg width="56" height="56" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
         <path d="M32 6L37 18H27L32 6Z" fill="#C5A059" />
         <path d="M14 20L22 28L18 36L10 28L14 20Z" fill="#C5A059" opacity="0.8" />
         <path d="M50 20L54 28L46 36L42 28L50 20Z" fill="#C5A059" opacity="0.8" />
-        <path d="M18 38C18 38 25 35 32 35C39 35 46 38 46 38C46 48 39 56 32 58C25 56 18 48 18 38Z" stroke="#C5A059" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
-        <path d="M26 44C29 42 35 42 38 44" stroke="#C5A059" stroke-width="1.5" stroke-linecap="round" />
+        <path d="M18 38C18 38 25 35 32 35C39 35 46 38 46 38C46 48 39 56 32 58C25 56 18 48 18 38Z" stroke="#C5A059" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" />
         <circle cx="32" cy="28" r="3" fill="#C5A059" />
-        <circle cx="20" cy="22" r="2" fill="#C5A059" />
-        <circle cx="44" cy="22" r="2" fill="#C5A059" />
       </svg>
     </div>
-    <p class="royal-eyebrow">Três Anos de Amor • 2023 — 2026</p>
+    <p class="royal-eyebrow">25 de Novembro de 2023 — 25 de Novembro de 2026</p>
     <h1 class="royal-opening__title">Para o amor da minha vida</h1>
     <p class="royal-opening__subtitle">
-      Um lugar calmo, elegante e nosso, onde cada detalhe celebra o caminho que trilhamos até aqui.
+      Três anos desde que o acaso nos uniu e o amor nos escolheu. Um refúgio dedicado à mulher que transformou a minha vida em poesia.
     </p>
-    <button class="btn-royal" id="enterExperienceBtn" type="button" aria-haspopup="false">
+    <button class="btn-royal" id="enterExperienceBtn" type="button">
       <span>Entrar na nossa história</span>
       <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
         <polyline points="9 18 15 12 9 6"></polyline>
@@ -53,80 +50,83 @@
   </aside>
 
   <!-- ============================================================
-       TOPBAR / NAVEGAÇÃO REFINADA
+       CABEÇALHO REESTRUTURADO: ULTRA ELEGANTE, MINIMALISTA E NOBRE
        ============================================================ -->
-  <header class="royal-topbar" id="royalTopbar">
-    <div class="topbar-container">
-      <a href="#inicio" class="royal-brand" aria-label="Início do site">
-        <span class="royal-brand__crest">✦</span>
-        <span class="royal-brand__text">Nosso Amor</span>
-        <span class="royal-brand__tag">III Anos</span>
+  <header class="royal-header" id="royalTopbar">
+    <div class="header-inner">
+      
+      <!-- Marca / Monograma Real -->
+      <a href="#inicio" class="header-brand" aria-label="Voltar ao início">
+        <span class="header-brand__crown" aria-hidden="true">✦</span>
+        <div class="header-brand__titles">
+          <span class="header-brand__name">Nosso Amor</span>
+          <span class="header-brand__subtitle">III Anos</span>
+        </div>
       </a>
 
-      <!-- Menu Desktop -->
-      <nav class="royal-nav" aria-label="Navegação principal">
-        <a href="#inicio">Início</a>
-        <a href="#historia">História</a>
-        <a href="#galeria">Galeria</a>
-        <a href="#trilha">Trilha Sonora</a>
-        <a href="#carta">Nossa Carta</a>
-        <a href="#contador">Nosso Tempo</a>
-        <a href="#ceu">Constelações</a>
-        <a href="#futuro">O Futuro</a>
+      <!-- Navegação Editorial Curada e Limpa -->
+      <nav class="header-nav" aria-label="Navegação do site">
+        <a href="#inicio" class="nav-item">Início</a>
+        <a href="#historia" class="nav-item">Nossa História</a>
+        <a href="#galeria" class="nav-item">Galeria</a>
+        <a href="#trilha" class="nav-item">Trilha Sonora</a>
+        <a href="#carta" class="nav-item">Nossa Carta</a>
+        <a href="#ceu" class="nav-item">Céu das Memórias</a>
       </nav>
 
-      <!-- Ações da Topbar -->
-      <div class="topbar-actions">
-        <!-- Botão Rápido de Áudio na Topbar -->
-        <button class="topbar-audio-btn" id="topbarAudioBtn" type="button" aria-label="Controlar reprodução de música" title="Trilha Sonora">
-          <svg class="audio-icon audio-icon--play" width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-            <polygon points="5 3 19 12 5 21 5 3"></polygon>
-          </svg>
-          <svg class="audio-icon audio-icon--pause" width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" style="display:none;">
-            <rect x="6" y="4" width="4" height="16"></rect>
-            <rect x="14" y="4" width="4" height="16"></rect>
-          </svg>
-          <span class="topbar-audio-btn__label">Música</span>
+      <!-- Ações do Cabeçalho: Player Discreto & Menu Mobile -->
+      <div class="header-actions">
+        <button class="header-music-pill" id="topbarAudioBtn" type="button" aria-label="Tocar ou pausar música" title="Trilha Sonora">
+          <span class="music-pill-icon" aria-hidden="true">
+            <svg class="icon-play" width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
+              <polygon points="6 4 20 12 6 20 6 4"></polygon>
+            </svg>
+            <svg class="icon-pause" width="14" height="14" viewBox="0 0 24 24" fill="currentColor" style="display:none;">
+              <rect x="6" y="4" width="4" height="16"></rect>
+              <rect x="14" y="4" width="4" height="16"></rect>
+            </svg>
+          </span>
+          <span class="music-pill-text" id="topbarTrackName">L-O-V-E</span>
         </button>
 
-        <!-- Toggle Mobile Hamburger -->
-        <button class="mobile-menu-toggle" id="mobileMenuToggle" type="button" aria-label="Abrir menu de navegação" aria-expanded="false" aria-controls="mobileDrawer">
-          <span class="hamburger-line"></span>
-          <span class="hamburger-line"></span>
-          <span class="hamburger-line"></span>
+        <button class="mobile-toggle" id="mobileMenuToggle" type="button" aria-label="Menu de seções" aria-expanded="false" aria-controls="mobileDrawer">
+          <span class="toggle-bar"></span>
+          <span class="toggle-bar"></span>
         </button>
       </div>
     </div>
 
-    <!-- Drawer Mobile Acessível -->
-    <div class="mobile-drawer" id="mobileDrawer" aria-hidden="true">
-      <nav class="mobile-drawer__nav" aria-label="Menu móvel">
-        <a href="#inicio" class="mobile-link">Início</a>
-        <a href="#historia" class="mobile-link">História</a>
-        <a href="#galeria" class="mobile-link">Galeria</a>
-        <a href="#trilha" class="mobile-link">Trilha Sonora</a>
-        <a href="#carta" class="mobile-link">Nossa Carta</a>
-        <a href="#contador" class="mobile-link">Nosso Tempo</a>
-        <a href="#ceu" class="mobile-link">Constelações</a>
-        <a href="#futuro" class="mobile-link">O Futuro</a>
+    <!-- Menu Drawer Mobile -->
+    <div class="header-drawer" id="mobileDrawer" aria-hidden="true">
+      <nav class="drawer-nav" aria-label="Navegação em celular">
+        <a href="#inicio" class="drawer-link">Início</a>
+        <a href="#historia" class="drawer-link">Nossa História</a>
+        <a href="#galeria" class="drawer-link">Galeria</a>
+        <a href="#trilha" class="drawer-link">Trilha Sonora</a>
+        <a href="#carta" class="drawer-link">Nossa Carta</a>
+        <a href="#contador" class="drawer-link">Nosso Tempo</a>
+        <a href="#ceu" class="drawer-link">Céu das Memórias</a>
+        <a href="#futuro" class="drawer-link">O Nosso Sempre</a>
       </nav>
     </div>
   </header>
 
   <main id="inicio">
     <!-- ============================================================
-         HERO SECTION: EDITORIAL REAL
+         HERO SECTION: POÉTICA, MADURA E ELEGANTE
          ============================================================ -->
     <section class="royal-hero royal-section">
       <div class="hero-layout">
         <div class="hero-content reveal-on-scroll">
-          <div class="royal-badge">
-            <span class="royal-badge__dot"></span>
+          <div class="hero-pill-badge">
+            <span class="badge-sparkle">✦</span>
             <span>25 de Novembro de 2023 — 25 de Novembro de 2026</span>
           </div>
-          <h2 class="hero-title">Três anos onde o tempo se fez poesia ao seu lado.</h2>
+          <h2 class="hero-title">
+            Três anos escolhendo você todos os dias, com a mesma certeza do primeiro olhar.
+          </h2>
           <p class="hero-description">
-            Um refúgio para guardar o que construímos: as primeiras viagens, os risos soltos, o carinho nos dias simples e a certeza inabalável de que cada dia contigo é a minha maior sorte.
+            Dizem que o tempo corre quando estamos felizes, mas ao seu lado cada instante ganha eternidade. Este lugar foi feito para guardar com delicadeza o que construímos: as primeiras viagens, os risos despretensiosos e o privilégio imenso de caminhar junto com a mulher da minha vida.
           </p>
           <div class="hero-actions">
             <a href="#historia" class="btn-royal">
@@ -139,35 +139,23 @@
           </div>
         </div>
 
-        <!-- Vitrine de Retratos Nobres (Fotos Reais Preservadas) -->
+        <!-- Vitrine de Retratos Puros (SEM TEXTOS SOBRE AS FOTOS) -->
         <div class="hero-portraits" aria-label="Retratos do casal">
-          <div class="portrait-card portrait-card--1 reveal-on-scroll">
-            <div class="portrait-frame">
-              <img src="images/FOTO_01.jpeg" alt="Fotogênicos — Momento especial do casal" loading="eager" decoding="async">
-            </div>
-            <div class="portrait-caption">
-              <span class="caption-handwritten">Fotogênicos</span>
-              <span class="caption-date">Nossa luz</span>
+          <div class="clean-portrait clean-portrait--1 reveal-on-scroll">
+            <div class="portrait-glass-mat">
+              <img src="images/FOTO_01.jpeg" alt="Fotografia do casal" loading="eager" decoding="async">
             </div>
           </div>
 
-          <div class="portrait-card portrait-card--2 reveal-on-scroll">
-            <div class="portrait-frame">
-              <img src="images/FOTO_02.jpeg" alt="Seu sorriso — O sorriso mais lindo" loading="lazy" decoding="async">
-            </div>
-            <div class="portrait-caption">
-              <span class="caption-handwritten">Seu sorriso</span>
-              <span class="caption-date">Meu lugar favorito</span>
+          <div class="clean-portrait clean-portrait--2 reveal-on-scroll">
+            <div class="portrait-glass-mat">
+              <img src="images/FOTO_02.jpeg" alt="Fotografia do casal" loading="lazy" decoding="async">
             </div>
           </div>
 
-          <div class="portrait-card portrait-card--3 reveal-on-scroll">
-            <div class="portrait-frame">
-              <img src="images/FOTO_03.jpeg" alt="Dorme chique — Momento de ternura e carinho" loading="lazy" decoding="async">
-            </div>
-            <div class="portrait-caption">
-              <span class="caption-handwritten">Dorme chique</span>
-              <span class="caption-date">A delicadeza em pessoa</span>
+          <div class="clean-portrait clean-portrait--3 reveal-on-scroll">
+            <div class="portrait-glass-mat">
+              <img src="images/FOTO_03.jpeg" alt="Fotografia do casal" loading="lazy" decoding="async">
             </div>
           </div>
         </div>
@@ -186,10 +174,10 @@
          ============================================================ -->
     <section class="royal-section timeline-section" id="historia">
       <div class="section-header reveal-on-scroll">
-        <p class="royal-eyebrow">Capítulos Inesquecíveis</p>
-        <h2 class="section-title">A Nossa História</h2>
+        <p class="royal-eyebrow">Nossa Trajetória</p>
+        <h2 class="section-title">Os Capítulos Mais Lindos da Minha Vida</h2>
         <p class="section-subtitle">
-          Cada parada desta linha do tempo guarda a essência e os passos que nos trouxeram até a celebração dos nossos três anos.
+          Não foram apenas dias que se passaram; foram momentos em que o amor virou lar e a cumplicidade se tornou o nosso porto seguro.
         </p>
       </div>
 
@@ -200,8 +188,8 @@
             <div class="marker-circle">I</div>
           </div>
           <div class="timeline-media">
-            <div class="media-frame" data-lightbox="images/NH_01.jpg" data-caption="25/11/2023 — O dia em que tudo começou. Foi nesse dia que começou uma nova parte da história da minha vida.">
-              <img src="images/NH_01.jpg" alt="O dia em que tudo começou — 25/11/2023" loading="lazy" decoding="async">
+            <div class="media-frame" data-lightbox="images/NH_01.jpg">
+              <img src="images/NH_01.jpg" alt="Registro do casal" loading="lazy" decoding="async">
               <span class="zoom-indicator" aria-hidden="true">⤢</span>
             </div>
           </div>
@@ -210,9 +198,9 @@
               <span class="date-highlight">25 de Novembro de 2023</span>
               <span class="date-badge">O Marco Inicial</span>
             </time>
-            <h3 class="timeline-card__title">O dia em que tudo começou</h3>
+            <h3 class="timeline-card__title">O Dia em que Meu Mundo Mudou</h3>
             <p class="timeline-card__text">
-              Foi nesse dia que começa uma nova parte da história da minha vida. O primeiro olhar, as primeiras conversas e o início do nosso laço.
+              25 de novembro de 2023. O dia em que nossos caminhos se cruzaram e começou a história mais bonita que eu já vivi. Ali nascia o que hoje é minha maior paz e felicidade diária.
             </p>
           </div>
         </article>
@@ -223,8 +211,8 @@
             <div class="marker-circle">II</div>
           </div>
           <div class="timeline-media">
-            <div class="media-frame" data-lightbox="images/NH_02.jpg" data-caption="Primeira aventura juntos — Depois dessa viagem, percebi que não há mais planos sem você. Peça essencial nos meus momentos.">
-              <img src="images/NH_02.jpg" alt="Primeira aventura juntos" loading="lazy" decoding="async">
+            <div class="media-frame" data-lightbox="images/NH_02.jpg">
+              <img src="images/NH_02.jpg" alt="Registro do casal" loading="lazy" decoding="async">
               <span class="zoom-indicator" aria-hidden="true">⤢</span>
             </div>
           </div>
@@ -233,9 +221,9 @@
               <span class="date-highlight">Primeiras Memórias</span>
               <span class="date-badge">Aventura Juntos</span>
             </time>
-            <h3 class="timeline-card__title">Primeira aventura juntos</h3>
+            <h3 class="timeline-card__title">Nossa Primeira Aventura Juntos</h3>
             <p class="timeline-card__text">
-              Depois dessa viagem, percebi que não há mais planos sem você. Você se tornou peça essencial em cada um dos meus momentos e sonhos.
+              A primeira viagem que fizemos lado a lado. Foi ali que tive a certeza mais clara do meu coração: não existia mais nenhum plano de futuro em que você não fosse o meu destino e a minha melhor companhia.
             </p>
           </div>
         </article>
@@ -246,8 +234,8 @@
             <div class="marker-circle">III</div>
           </div>
           <div class="timeline-media">
-            <div class="media-frame" data-lightbox="images/NH_03.jpg" data-caption="Quando eu soube — Quando me dei conta que teria uma parceira maravilhosa pro resto da vida.">
-              <img src="images/NH_03.jpg" alt="Quando eu soube que era você" loading="lazy" decoding="async">
+            <div class="media-frame" data-lightbox="images/NH_03.jpg">
+              <img src="images/NH_03.jpg" alt="Registro do casal" loading="lazy" decoding="async">
               <span class="zoom-indicator" aria-hidden="true">⤢</span>
             </div>
           </div>
@@ -256,9 +244,9 @@
               <span class="date-highlight">O Momento da Certeza</span>
               <span class="date-badge">Cumplicidade</span>
             </time>
-            <h3 class="timeline-card__title">Quando eu soube</h3>
+            <h3 class="timeline-card__title">O Momento da Certeza Absoluta</h3>
             <p class="timeline-card__text">
-              Quando me dei conta que teria uma parceira maravilhosa pro resto da vida. O amor deixou de ser apenas sentimento e virou lar.
+              Um instante simples e sereno em que olhei para você e soube com todas as forças: encontrei a parceira dos meus sonhos, a mulher com quem quero dividir cada conquista pelo resto da vida.
             </p>
           </div>
         </article>
@@ -269,19 +257,19 @@
             <div class="marker-circle">IV</div>
           </div>
           <div class="timeline-media">
-            <div class="media-frame" data-lightbox="images/NH_04.jpg" data-caption="Nossa Viagem — A primeira de muitas das nossas viagens em resorts...">
-              <img src="images/NH_04.jpg" alt="Nossa Viagem em Resorts" loading="lazy" decoding="async">
+            <div class="media-frame" data-lightbox="images/NH_04.jpg">
+              <img src="images/NH_04.jpg" alt="Registro do casal" loading="lazy" decoding="async">
               <span class="zoom-indicator" aria-hidden="true">⤢</span>
             </div>
           </div>
           <div class="timeline-card">
             <time class="timeline-date">
-              <span class="date-highlight">Novos Horizontes</span>
-              <span class="date-badge">Nossa Viagem</span>
+              <span class="date-highlight">Nossos Horizontes</span>
+              <span class="date-badge">Viagens & Resorts</span>
             </time>
-            <h3 class="timeline-card__title">Nossa Viagem</h3>
+            <h3 class="timeline-card__title">Nossos Refúgios e Nossas Viagens</h3>
             <p class="timeline-card__text">
-              A primeira de muitas das nossas viagens em resorts... Descobrindo o mundo lado a lado e aproveitando cada instante de tranquilidade.
+              Nossas viagens em resorts, o descanso a dois, as conversas sem pressa e a calma de estar perto de quem se ama. Com você, qualquer lugar do mapa se transforma em paraíso.
             </p>
           </div>
         </article>
@@ -292,8 +280,8 @@
             <div class="marker-circle marker-circle--crown">👑</div>
           </div>
           <div class="timeline-media">
-            <div class="media-frame media-frame--placeholder" data-lightbox="images/GM_01.jpeg" data-caption="Três Anos de Cumplicidade — 25 de Novembro de 2026. O amor que amadureceu e se consolidou.">
-              <img src="images/GM_01.jpeg" alt="Celebração dos Três Anos" loading="lazy" decoding="async">
+            <div class="media-frame" data-lightbox="images/GM_01.jpeg">
+              <img src="images/GM_01.jpeg" alt="Registro do casal" loading="lazy" decoding="async">
               <span class="zoom-indicator" aria-hidden="true">⤢</span>
             </div>
           </div>
@@ -302,9 +290,9 @@
               <span class="date-highlight date-highlight--gold">25 de Novembro de 2026</span>
               <span class="date-badge date-badge--royal">Três Anos Juntos</span>
             </time>
-            <h3 class="timeline-card__title">Bodas de Cristal do Nosso Amor</h3>
+            <h3 class="timeline-card__title">Três Anos: O Início da Nossa Eternidade</h3>
             <p class="timeline-card__text">
-              Hoje celebramos 1.096 dias caminhando na mesma direção. Três anos de cumplicidade madura, respeito e a alegria de construir um futuro digno de realeza.
+              Hoje celebramos três anos de mãos dadas. Três anos de um amor que amadureceu com leveza, carinho e respeito. Você é a minha princesa, meu maior acerto e a certeza de um futuro lindo juntos.
             </p>
           </div>
         </article>
@@ -319,119 +307,59 @@
     </div>
 
     <!-- ============================================================
-         GALLERY SECTION: GALERIA EDITORIAL
+         GALLERY SECTION: RETRATOS PUROS E LIMPOS (SEM TEXTOS EM CIMA)
          ============================================================ -->
     <section class="royal-section gallery-section" id="galeria">
       <div class="section-header reveal-on-scroll">
-        <p class="royal-eyebrow">Acervo Afetivo</p>
-        <h2 class="section-title">Galeria de Lembranças</h2>
+        <p class="royal-eyebrow">Galeria</p>
+        <h2 class="section-title">Nossos Retratos Mais Preciosos</h2>
         <p class="section-subtitle">
-          Toque em qualquer quadro para abrir a visualização em alta definição com seus detalhes poéticos.
+          Momentos capturados no tempo, onde a pureza do seu olhar e a harmonia do nosso amor dispensam palavras.
         </p>
       </div>
 
-      <div class="royal-gallery-grid">
-        <!-- Item 1: Foto Real GM_01 -->
-        <figure class="gallery-card reveal-on-scroll" data-lightbox="images/GM_01.jpeg" data-caption="O dia em que tudo começou — Um registro eterno da nossa cumplicidade.">
-          <div class="gallery-card__inner">
-            <img src="images/GM_01.jpeg" alt="O dia em que tudo começou" loading="lazy" decoding="async">
-            <div class="gallery-card__overlay">
-              <span class="overlay-title">O Começo de Tudo</span>
-              <span class="overlay-action">Visualizar Retrato</span>
-            </div>
+      <div class="clean-gallery-grid">
+        <!-- Retrato 1 -->
+        <div class="clean-photo-card reveal-on-scroll" data-lightbox="images/GM_01.jpeg">
+          <div class="photo-inner">
+            <img src="images/GM_01.jpeg" alt="Fotografia do casal" loading="lazy" decoding="async">
           </div>
-          <figcaption class="gallery-card__caption">
-            <strong>O dia em que tudo começou</strong>
-            <small>Memória Real</small>
-          </figcaption>
-        </figure>
+        </div>
 
-        <!-- Item 2: Foto Real FOTO_01 na Galeria -->
-        <figure class="gallery-card reveal-on-scroll" data-lightbox="images/FOTO_01.jpeg" data-caption="Fotogênicos — Meu lugar favorito sempre será ao seu lado.">
-          <div class="gallery-card__inner">
-            <img src="images/FOTO_01.jpeg" alt="Nosso carinho" loading="lazy" decoding="async">
-            <div class="gallery-card__overlay">
-              <span class="overlay-title">Cumplicidade</span>
-              <span class="overlay-action">Visualizar Retrato</span>
-            </div>
+        <!-- Retrato 2 -->
+        <div class="clean-photo-card reveal-on-scroll" data-lightbox="images/FOTO_01.jpeg">
+          <div class="photo-inner">
+            <img src="images/FOTO_01.jpeg" alt="Fotografia do casal" loading="lazy" decoding="async">
           </div>
-          <figcaption class="gallery-card__caption">
-            <strong>Nosso carinho</strong>
-            <small>Instantes a Dois</small>
-          </figcaption>
-        </figure>
+        </div>
 
-        <!-- Item 3: Foto Real FOTO_02 na Galeria -->
-        <figure class="gallery-card reveal-on-scroll" data-lightbox="images/FOTO_02.jpeg" data-caption="Seu sorriso — O sorriso que ilumina qualquer dia cinzento.">
-          <div class="gallery-card__inner">
-            <img src="images/FOTO_02.jpeg" alt="O sorriso mais encantador" loading="lazy" decoding="async">
-            <div class="gallery-card__overlay">
-              <span class="overlay-title">Seu Encanto</span>
-              <span class="overlay-action">Visualizar Retrato</span>
-            </div>
+        <!-- Retrato 3 -->
+        <div class="clean-photo-card reveal-on-scroll" data-lightbox="images/FOTO_02.jpeg">
+          <div class="photo-inner">
+            <img src="images/FOTO_02.jpeg" alt="Fotografia do casal" loading="lazy" decoding="async">
           </div>
-          <figcaption class="gallery-card__caption">
-            <strong>O sorriso mais encantador</strong>
-            <small>Retrato da Minha Princesa</small>
-          </figcaption>
-        </figure>
+        </div>
 
-        <!-- Item 4: Foto Real FOTO_03 na Galeria -->
-        <figure class="gallery-card reveal-on-scroll" data-lightbox="images/FOTO_03.jpeg" data-caption="Dorme Linda — A paz de estar ao seu lado e admirar sua serenidade.">
-          <div class="gallery-card__inner">
-            <img src="images/FOTO_03.jpeg" alt="Serenidade e paz" loading="lazy" decoding="async">
-            <div class="gallery-card__overlay">
-              <span class="overlay-title">Paz e Ternura</span>
-              <span class="overlay-action">Visualizar Retrato</span>
-            </div>
+        <!-- Retrato 4 -->
+        <div class="clean-photo-card reveal-on-scroll" data-lightbox="images/FOTO_03.jpeg">
+          <div class="photo-inner">
+            <img src="images/FOTO_03.jpeg" alt="Fotografia do casal" loading="lazy" decoding="async">
           </div>
-          <figcaption class="gallery-card__caption">
-            <strong>Serenidade e ternura</strong>
-            <small>Acalanto</small>
-          </figcaption>
-        </figure>
+        </div>
 
-        <!-- Item 5: Espaço Nobre Reservado 01 (Placeholder Elegante) -->
-        <figure class="gallery-card gallery-card--curated reveal-on-scroll" data-lightbox="" data-caption="Espaço reservado para o próximo registro especial dos nossos três anos.">
-          <div class="gallery-card__inner gallery-card__inner--placeholder">
-            <div class="passepartout-seal" aria-hidden="true">
-              <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-                <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
-                <circle cx="8.5" cy="8.5" r="1.5"></circle>
-                <polyline points="21 15 16 10 5 21"></polyline>
-              </svg>
-              <span>Capítulo V</span>
-            </div>
-            <div class="gallery-card__overlay">
-              <span class="overlay-title">Espaço Reservado</span>
-              <span class="overlay-action">Adicionar Nova Foto</span>
-            </div>
+        <!-- Retrato 5 (Reserva Nobre) -->
+        <div class="clean-photo-card clean-photo-card--placeholder reveal-on-scroll" data-lightbox="">
+          <div class="photo-inner photo-inner--frame">
+            <span class="frame-crest">✦</span>
           </div>
-          <figcaption class="gallery-card__caption">
-            <strong>Nossos Novos Dias</strong>
-            <small>Adicione em images/galeria-05.jpg</small>
-          </figcaption>
-        </figure>
+        </div>
 
-        <!-- Item 6: Espaço Nobre Reservado 02 (Placeholder Elegante) -->
-        <figure class="gallery-card gallery-card--curated reveal-on-scroll" data-lightbox="" data-caption="Espaço reservado para a fotografia oficial comemorativa de 3 anos de namoro.">
-          <div class="gallery-card__inner gallery-card__inner--placeholder">
-            <div class="passepartout-seal" aria-hidden="true">
-              <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-                <path d="M12 2L15 9H22L16.5 14L18.5 21L12 17L5.5 21L7.5 14L2 9H9L12 2Z"></path>
-              </svg>
-              <span>Capítulo VI</span>
-            </div>
-            <div class="gallery-card__overlay">
-              <span class="overlay-title">Foto dos Três Anos</span>
-              <span class="overlay-action">Adicionar Nova Foto</span>
-            </div>
+        <!-- Retrato 6 (Reserva Nobre) -->
+        <div class="clean-photo-card clean-photo-card--placeholder reveal-on-scroll" data-lightbox="">
+          <div class="photo-inner photo-inner--frame">
+            <span class="frame-crest">👑</span>
           </div>
-          <figcaption class="gallery-card__caption">
-            <strong>Três Anos Juntos</strong>
-            <small>Adicione em images/galeria-06.jpg</small>
-          </figcaption>
-        </figure>
+        </div>
       </div>
     </section>
 
@@ -443,19 +371,18 @@
     </div>
 
     <!-- ============================================================
-         MUSIC & SOUNDTRACK SECTION: PLAYER EDITORIAL INTEGRADO
+         MUSIC SECTION: TRILHA SONORA SOLICITADA PELO USUÁRIO
          ============================================================ -->
     <section class="royal-section soundtrack-section" id="trilha">
       <div class="section-header reveal-on-scroll">
-        <p class="royal-eyebrow">Harmonia & Sentimento</p>
-        <h2 class="section-title">A Trilha da Nossa História</h2>
+        <p class="royal-eyebrow">Trilha Sonora</p>
+        <h2 class="section-title">A Melodia dos Nossos Dias</h2>
         <p class="section-subtitle">
-          Um reprodutor de áudio projetado para acompanhar sua leitura. Escolha as músicas que marcaram nossa jornada.
+          As canções que tocam o nosso coração e embalam a história dos nossos três anos juntos.
         </p>
       </div>
 
       <div class="soundtrack-card reveal-on-scroll">
-        <!-- Mostrador de Faixa e Arte Real -->
         <div class="soundtrack-media">
           <div class="vinyl-disk" id="vinylDisk" aria-hidden="true">
             <div class="vinyl-groove"></div>
@@ -464,9 +391,9 @@
             </div>
           </div>
           <div class="soundtrack-info">
-            <span class="track-tag" id="trackStatusTag">Trilha Pronta para Configuração</span>
-            <h3 class="track-title" id="trackTitle">Música Principal do Casal</h3>
-            <p class="track-artist" id="trackArtist">Configure sua faixa favorita em music/song1.mp3</p>
+            <span class="track-tag" id="trackStatusTag">Nossa Seleção Musical</span>
+            <h3 class="track-title" id="trackTitle">L-O-V-E</h3>
+            <p class="track-artist" id="trackArtist">Michael Bublé</p>
           </div>
         </div>
 
@@ -481,7 +408,7 @@
           </div>
         </div>
 
-        <!-- Controles de Reprodução Completos -->
+        <!-- Controles de Reprodução -->
         <div class="soundtrack-controls">
           <button class="track-btn track-btn--secondary" id="prevTrackBtn" type="button" aria-label="Faixa anterior" title="Faixa anterior">
             <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
@@ -490,7 +417,7 @@
             </svg>
           </button>
 
-          <button class="track-btn track-btn--primary" id="playPauseBtn" type="button" aria-label="Reproduzir música" title="Play/Pause">
+          <button class="track-btn track-btn--primary" id="playPauseBtn" type="button" aria-label="Tocar música" title="Play/Pause">
             <svg class="icon-play" width="22" height="22" viewBox="0 0 24 24" fill="currentColor">
               <polygon points="5 3 19 12 5 21 5 3"></polygon>
             </svg>
@@ -507,7 +434,7 @@
             </svg>
           </button>
 
-          <!-- Controle de Volume com Slider Integrado -->
+          <!-- Controle de Volume -->
           <div class="volume-control">
             <button class="volume-toggle-btn" id="volumeToggleBtn" type="button" aria-label="Silenciar áudio" title="Silenciar">
               <svg class="vol-icon vol-high" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -520,42 +447,69 @@
                 <line x1="17" y1="9" x2="23" y2="15"></line>
               </svg>
             </button>
-            <input type="range" class="volume-slider" id="volumeSlider" min="0" max="1" step="0.05" value="0.7" aria-label="Controle de volume">
+            <input type="range" class="volume-slider" id="volumeSlider" min="0" max="1" step="0.05" value="0.75" aria-label="Controle de volume">
           </div>
         </div>
 
-        <!-- Seletor de Faixas da Playlist -->
+        <!-- Playlist com as Músicas Solicitadas -->
         <div class="playlist-container">
-          <p class="playlist-title">Nossa Playlist de Memórias:</p>
+          <p class="playlist-title">Nossas Canções de Amor:</p>
           <ul class="playlist-list" id="playlistList" role="listbox">
+            <!-- 1. Michael Bublé -->
             <li class="playlist-item is-active" data-index="0" role="option" aria-selected="true" tabindex="0">
               <span class="track-number">01</span>
               <div class="track-meta">
-                <strong>Canção Principal (Nossa História)</strong>
-                <small>music/song1.mp3</small>
+                <strong>L-O-V-E</strong>
+                <small>Michael Bublé</small>
               </div>
-              <span class="track-badge">Em destaque</span>
+              <span class="track-badge">Romântica</span>
             </li>
+            <!-- 2. Frank Sinatra -->
             <li class="playlist-item" data-index="1" role="option" aria-selected="false" tabindex="0">
               <span class="track-number">02</span>
               <div class="track-meta">
-                <strong>Trilha do Primeiro Encontro</strong>
-                <small>music/memoria-01.mp3</small>
+                <strong>The Way You Look Tonight</strong>
+                <small>Frank Sinatra</small>
               </div>
-              <span class="track-badge">Memória</span>
+              <span class="track-badge">Clássica</span>
             </li>
+            <!-- 3. Henrique & Juliano -->
             <li class="playlist-item" data-index="2" role="option" aria-selected="false" tabindex="0">
               <span class="track-number">03</span>
               <div class="track-meta">
-                <strong>Melodia dos Nossos Dias Felizes</strong>
-                <small>music/memoria-02.mp3</small>
+                <strong>Pra Que Juízo</strong>
+                <small>Henrique & Juliano</small>
               </div>
-              <span class="track-badge">Viagem</span>
+              <span class="track-badge">Nosso Amor</span>
+            </li>
+            <!-- 4. Luan Santana -->
+            <li class="playlist-item" data-index="3" role="option" aria-selected="false" tabindex="0">
+              <span class="track-number">04</span>
+              <div class="track-meta">
+                <strong>Te Vivo</strong>
+                <small>Luan Santana</small>
+              </div>
+              <span class="track-badge">Especial</span>
+            </li>
+            <!-- 5. Jorge & Mateus -->
+            <li class="playlist-item" data-index="4" role="option" aria-selected="false" tabindex="0">
+              <span class="track-number">05</span>
+              <div class="track-meta">
+                <strong>Pra Sempre Com Você</strong>
+                <small>Jorge & Mateus</small>
+              </div>
+              <span class="track-badge">Para Sempre</span>
+            </li>
+            <!-- 6. Jorge & Mateus -->
+            <li class="playlist-item" data-index="5" role="option" aria-selected="false" tabindex="0">
+              <span class="track-number">06</span>
+              <div class="track-meta">
+                <strong>Os Anjos Cantam Nosso Amor</strong>
+                <small>Jorge & Mateus</small>
+              </div>
+              <span class="track-badge">Celebração</span>
             </li>
           </ul>
-          <p class="playlist-note">
-            <em>💡 Dica: Basta adicionar seus arquivos MP3 na pasta <code>music/</code> com os nomes indicados acima para tocar imediatamente sem precisar mexer no código!</em>
-          </p>
         </div>
       </div>
     </section>
@@ -568,19 +522,18 @@
     </div>
 
     <!-- ============================================================
-         LOVE LETTER SECTION: CARTA DE AMOR REAL COM SINETE
+         LOVE LETTER SECTION: CARTA DE AMOR REAL
          ============================================================ -->
     <section class="royal-section letter-section" id="carta">
       <div class="section-header reveal-on-scroll">
         <p class="royal-eyebrow">Palavras do Coração</p>
         <h2 class="section-title">Nossa Carta de Amor</h2>
         <p class="section-subtitle">
-          Uma dedicatória escrita com o coração. Leia no pergaminho solene ou personalize a sua mensagem para a posteridade.
+          Uma dedicatória escrita com afeto sincero, guardando a verdade do que sinto por você nestes três anos.
         </p>
       </div>
 
       <div class="letter-wrapper reveal-on-scroll">
-        <!-- Barra de Ações da Carta (Alternar Leitura / Edição) -->
         <div class="letter-toolbar">
           <div class="letter-mode-switch">
             <button class="mode-btn is-active" id="viewLetterModeBtn" type="button">
@@ -603,47 +556,41 @@
           </div>
         </div>
 
-        <!-- Visualizador Editorial da Carta (Pergaminho Real) -->
+        <!-- Pergaminho Real -->
         <article class="royal-letter-parchment" id="royalLetterDisplay">
           <div class="parchment-seal" aria-hidden="true">
             <span class="seal-icon">✦</span>
           </div>
           <header class="parchment-header">
-            <p class="parchment-date">25 de Novembro de 2026 • Três Anos de Cumplicidade</p>
+            <p class="parchment-date">25 de Novembro de 2026 • Bodas de Três Anos</p>
             <h3 class="parchment-greeting">Meu amor,</h3>
           </header>
           <div class="parchment-body" id="parchmentBodyText">
-            <!-- Texto inicial editorial carinhoso e maduro dos 3 anos (se não houver carta salva) -->
             <p>
-              Hoje comemoramos três anos desde o dia em que nossos caminhos se uniram para sempre. Quando olho para trás, para aquele 25 de novembro de 2023, vejo com clareza como cada dia ao seu lado superou qualquer expectativa que meu coração já teve.
+              Hoje completamos três anos de um amor que se renova a cada amanhecer. Quando fecho os olhos e me lembro daquele 25 de novembro de 2023, percebo com clareza o tamanho da bênção que foi ter você entrando na minha vida.
             </p>
             <p>
-              Você é a mulher mais maravilhosa que o destino poderia ter me presenteado: inteligente, delicada, forte e dona do sorriso mais lindo do mundo. Nossas conversas, nossas viagens a resorts, nossos momentos de descanso e até os silêncios compartilhados me provam, a cada amanhecer, que o amor verdadeiro é o nosso maior tesouro.
+              Você é a mulher mais maravilhosa que eu poderia sonhar em ter ao meu lado: carinhosa, inteligente, autêntica e dona do sorriso mais lindo deste mundo. Em cada viagem a resorts, em cada conversa longa ou nos dias mais calmos em que apenas descansamos juntos, você transforma qualquer momento comum em algo precioso.
             </p>
             <p>
-              Obrigado por ser minha parceira, minha confidente e a verdadeira princesa da minha vida. Que esses três anos sejam apenas as primeiras páginas de um livro lindo e infinito que continuaremos escrevendo juntos.
+              Obrigado por ser a minha parceira de vida, minha confidente e a verdadeira princesa dos meus dias. Três anos são apenas o primeiro capítulo da história linda que ainda continuaremos construindo juntos.
             </p>
             <p class="parchment-closing">
-              Com todo o meu amor e admiração eterna,<br>
+              Com todo o meu amor, admiração e carinho eterno,<br>
               <strong>Para sempre seu. ❤️</strong>
             </p>
           </div>
         </article>
 
-        <!-- Editor da Carta (Oculto por padrão, ativado pelo botão) -->
+        <!-- Editor da Carta -->
         <div class="royal-letter-editor" id="royalLetterEditor" style="display: none;">
-          <label for="loveLetterInputText" class="editor-label">Escreva ou ajuste a sua carta pessoal:</label>
-          <textarea id="loveLetterInputText" rows="14" placeholder="Meu amor, hoje celebramos três anos de namoro e quero te dizer..."></textarea>
+          <label for="loveLetterInputText" class="editor-label">Personalize sua declaração de amor:</label>
+          <textarea id="loveLetterInputText" rows="14" placeholder="Meu amor, hoje completamos três anos juntos e quero te dizer..."></textarea>
           <div class="editor-actions">
             <button class="btn-royal" id="saveLetterBtn" type="button">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <path d="M19 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11l5 5v11a2 2 0 0 1-2 2z"></path>
-                <polyline points="17 21 17 13 7 13 7 21"></polyline>
-                <polyline points="7 3 7 8 15 8"></polyline>
-              </svg>
-              <span>Selar e Salvar Carta</span>
+              <span>Salvar Carta</span>
             </button>
-            <button class="btn-royal-outline" id="restoreLetterDefaultBtn" type="button">Restaurar Carta Original</button>
+            <button class="btn-royal-outline" id="restoreLetterDefaultBtn" type="button">Restaurar Texto Original</button>
           </div>
         </div>
       </div>
@@ -661,15 +608,14 @@
          ============================================================ -->
     <section class="royal-section counter-section" id="contador">
       <div class="section-header reveal-on-scroll">
-        <p class="royal-eyebrow">Nossa Linha do Tempo</p>
-        <h2 class="section-title">Nosso Tempo de Amor</h2>
+        <p class="royal-eyebrow">Nosso Tempo de Amor</p>
+        <h2 class="section-title">1.096 Dias de Cumplicidade</h2>
         <p class="section-subtitle">
-          Cada segundo contabilizado desde 25 de novembro de 2023, celebrando com exatidão a nossa união.
+          Cada segundo contabilizado desde 25 de novembro de 2023, celebrando a bênção de estar com você.
         </p>
       </div>
 
       <div class="reliquary-container reveal-on-scroll">
-        <!-- Relicário: Anos -->
         <div class="reliquary-card">
           <div class="reliquary-frame">
             <span class="reliquary-number" id="counterYears">3</span>
@@ -677,7 +623,6 @@
           <span class="reliquary-label">Anos de Amor</span>
         </div>
 
-        <!-- Relicário: Dias -->
         <div class="reliquary-card">
           <div class="reliquary-frame">
             <span class="reliquary-number" id="counterDays">0</span>
@@ -685,7 +630,6 @@
           <span class="reliquary-label">Dias Vividos</span>
         </div>
 
-        <!-- Relicário: Horas -->
         <div class="reliquary-card">
           <div class="reliquary-frame">
             <span class="reliquary-number" id="counterHours">00</span>
@@ -693,7 +637,6 @@
           <span class="reliquary-label">Horas</span>
         </div>
 
-        <!-- Relicário: Minutos -->
         <div class="reliquary-card">
           <div class="reliquary-frame">
             <span class="reliquary-number" id="counterMinutes">00</span>
@@ -701,7 +644,6 @@
           <span class="reliquary-label">Minutos</span>
         </div>
 
-        <!-- Relicário: Segundos -->
         <div class="reliquary-card">
           <div class="reliquary-frame">
             <span class="reliquary-number" id="counterSeconds">00</span>
@@ -725,19 +667,19 @@
     </div>
 
     <!-- ============================================================
-         SKY / CONSTELLATIONS SECTION: CÉU DAS MEMÓRIAS
+         SKY SECTION: O ÚNICO LUGAR COM FRASES E LEMBRANÇAS POÉTICAS
          ============================================================ -->
     <section class="royal-section sky-section" id="ceu">
       <div class="section-header section-header--light reveal-on-scroll">
-        <p class="royal-eyebrow royal-eyebrow--gold">Bóboda Celeste</p>
-        <h2 class="section-title section-title--light">Céu das Memórias</h2>
+        <p class="royal-eyebrow royal-eyebrow--gold">Céu das Memórias</p>
+        <h2 class="section-title section-title--light">Constelações do Nosso Amor</h2>
         <p class="section-subtitle section-subtitle--light">
-          Cada estrela no firmamento guarda um fragmento luminoso da nossa história. Toque em qualquer uma para revelá-lo.
+          Toque em cada uma das estrelas para revelar as lembranças, confissões e sentimentos guardados no firmamento.
         </p>
       </div>
 
-      <div class="celestial-vault reveal-on-scroll" id="celestialVault" aria-label="Mapa celestial interativo de memórias">
-        <!-- As estrelas são geradas e renderizadas via JS de forma acessível e equilibrada -->
+      <div class="celestial-vault reveal-on-scroll" id="celestialVault" aria-label="Mapa celestial de memórias">
+        <!-- Gerado via JavaScript -->
       </div>
     </section>
 
@@ -749,109 +691,16 @@
     </div>
 
     <!-- ============================================================
-         EXTRAS: CAPÍTULOS, LUGARES MARCANTES E CÁPSULA DO TEMPO
-         ============================================================ -->
-    <section class="royal-section extras-section" id="extras">
-      <div class="section-header reveal-on-scroll">
-        <p class="royal-eyebrow">Capítulos & Horizontes</p>
-        <h2 class="section-title">Pequenos Mundos do Nosso Amor</h2>
-        <p class="section-subtitle">
-          Os detalhes que tornam a nossa história tão rica em afeto, viagens e sonhos compartilhados.
-        </p>
-      </div>
-
-      <div class="extras-grid">
-        <!-- Livro de Capítulos Nobre -->
-        <article class="royal-book-card reveal-on-scroll">
-          <div class="book-cover-accent" aria-hidden="true">
-            <span class="book-spine-line"></span>
-            <span class="book-crest">❦</span>
-          </div>
-          <div class="book-content">
-            <span class="book-badge">Livro de Memórias</span>
-            <h3 class="book-title">Crônicas do Nosso Amor</h3>
-            <div class="book-chapters">
-              <div class="chapter-item">
-                <span class="chapter-num">Cap. I</span>
-                <p>Quando nossos olhares se cruzaram e o mundo fez sentido.</p>
-              </div>
-              <div class="chapter-item">
-                <span class="chapter-num">Cap. II</span>
-                <p>Nossas viagens, a cumplicidade e a certeza de um amor que amadurece.</p>
-              </div>
-              <div class="chapter-item">
-                <span class="chapter-num">Cap. III</span>
-                <p>Três anos de compromisso, carinho e um futuro radiante que nos espera.</p>
-              </div>
-            </div>
-          </div>
-        </article>
-
-        <!-- Mapa de Lugares Nobres do Casal -->
-        <article class="royal-map-card reveal-on-scroll">
-          <div class="map-card-header">
-            <span class="book-badge">Nossa Geografia Afetiva</span>
-            <h3 class="book-title">Lugares Marcantes</h3>
-            <p class="map-card-desc">Cidades, resorts e recantos onde fomos imensamente felizes.</p>
-          </div>
-          <div class="interactive-map" id="interactiveMap">
-            <button class="map-pin map-pin--1" style="--pin-x: 28%; --pin-y: 35%;" type="button" data-place="Onde tudo começou" data-desc="O primeiro encontro que deu início aos nossos três anos.">
-              <span class="pin-dot"></span>
-              <span class="pin-label">O Início</span>
-            </button>
-            <button class="map-pin map-pin--2" style="--pin-x: 64%; --pin-y: 46%;" type="button" data-place="Nossos Resorts" data-desc="A tranquilidade de viajar e descansar em resorts ao seu lado.">
-              <span class="pin-dot"></span>
-              <span class="pin-label">Resorts</span>
-            </button>
-            <button class="map-pin map-pin--3" style="--pin-x: 44%; --pin-y: 68%;" type="button" data-place="Nosso Refúgio" data-desc="Qualquer lugar do mundo onde estejamos juntos se transforma em casa.">
-              <span class="pin-dot"></span>
-              <span class="pin-label">Nosso Lar</span>
-            </button>
-          </div>
-          <div class="map-info-box" id="mapInfoBox" aria-live="polite">
-            <em>Toque em um dos pontos no mapa para rememorar.</em>
-          </div>
-        </article>
-
-        <!-- Cápsula do Tempo Real -->
-        <article class="royal-capsule-card reveal-on-scroll">
-          <div class="capsule-header">
-            <span class="book-badge">Para a Posteridade</span>
-            <h3 class="book-title">Cápsula do Tempo</h3>
-            <p class="capsule-desc">Nossas promessas e desejos guardados para o amanhã.</p>
-          </div>
-          <div class="capsule-messages">
-            <div class="capsule-box">
-              <span class="capsule-tag">Para daqui a 5 anos:</span>
-              <p>Que continuemos nos olhando com o mesmo encantamento, rindo das piadas bobas e colecionando viagens pelo mundo.</p>
-            </div>
-            <div class="capsule-box">
-              <span class="capsule-tag">Para daqui a 10 anos:</span>
-              <p>Que a nossa família continue sendo o nosso maior orgulho e que este amor continue sendo a nossa fortaleza mais segura.</p>
-            </div>
-          </div>
-        </article>
-      </div>
-    </section>
-
-    <!-- Divisor Ornamental Real -->
-    <div class="royal-divider" aria-hidden="true">
-      <span class="divider-line"></span>
-      <span class="divider-ornament">❦</span>
-      <span class="divider-line"></span>
-    </div>
-
-    <!-- ============================================================
-         FINAL SECTION: CELEBRAÇÃO DOS TRÊS ANOS & VÍDEO
+         FINAL SECTION: O NOSSO SEMPRE
          ============================================================ -->
     <section class="royal-section final-section" id="futuro">
       <div class="final-banner reveal-on-scroll">
-        <p class="royal-eyebrow royal-eyebrow--gold">Três Anos Eternos</p>
+        <p class="royal-eyebrow royal-eyebrow--gold">Para a Eternidade</p>
         <h2 class="final-banner__title">
           "Se eu tivesse mil vidas, em todas elas escolheria você."
         </h2>
         <p class="final-banner__sub">
-          Feliz Aniversário de Três Anos de Namoro, meu grande amor. ❤️
+          Feliz Aniversário de Três Anos, meu amor. ❤️
         </p>
         <div class="final-banner__actions">
           <button class="btn-royal btn-royal--gold" id="celebrateBurstBtn" type="button">
@@ -861,14 +710,13 @@
         </div>
       </div>
 
-      <!-- Estrutura Preparada para o Vídeo Especial Surpresa -->
+      <!-- Estrutura do Vídeo Surpresa -->
       <div class="royal-video-container reveal-on-scroll">
         <div class="video-frame">
           <div class="video-header">
             <span class="video-tag">Registro Especial</span>
             <h3 class="video-title">Vídeo Surpresa do Casal</h3>
           </div>
-          <!-- O vídeo só tenta carregar se o arquivo estiver disponível -->
           <div class="video-player-wrap">
             <video id="surpriseVideoElement" controls preload="metadata" poster="images/FOTO_01.jpeg">
               <source src="video/surpresa.mp4" type="video/mp4">
@@ -876,7 +724,7 @@
             </video>
             <div class="video-placeholder-notice" id="videoNotice">
               <p>
-                <em>🎥 Quando desejar adicionar seu vídeo comemorativo, basta colocar o arquivo <code>surpresa.mp4</code> na pasta <code>video/</code>.</em>
+                <em>🎥 Quando desejar adicionar seu vídeo especial, basta colocar o arquivo <code>surpresa.mp4</code> na pasta <code>video/</code>.</em>
               </p>
             </div>
           </div>
@@ -885,14 +733,12 @@
     </section>
   </main>
 
-  <!-- ============================================================
-       RODAPÉ EDITORIAL
-       ============================================================ -->
+  <!-- Rodapé -->
   <footer class="royal-footer">
     <div class="footer-container">
       <div class="footer-crest" aria-hidden="true">✦ ❦ ✦</div>
       <p class="footer-text">
-        Criado com todo o amor do mundo para celebrar nossos <strong>Três Anos de Namoro</strong>.
+        Criado com amor para celebrar nossos <strong>Três Anos de Namoro</strong>.
       </p>
       <p class="footer-subtext">
         25 de Novembro de 2023 — 25 de Novembro de 2026 • Para sempre nós dois.
@@ -900,14 +746,12 @@
     </div>
   </footer>
 
-  <!-- Botão Secreto de Mensagem Íntima (Discreto no canto) -->
+  <!-- Selo Secreto -->
   <button class="royal-secret-seal" id="secretSealBtn" type="button" aria-label="Abrir mensagem confidencial" title="Uma mensagem confidencial">
     <span class="seal-inner">❦</span>
   </button>
 
-  <!-- ============================================================
-       MODAL / LIGHTBOX ACESSÍVEL (COM FOCO RESTRITO E SUPORTE A ESC/SETAS)
-       ============================================================ -->
+  <!-- Lightbox Modal Universal (Com foco nas memórias do céu) -->
   <div class="royal-lightbox" id="royalLightbox" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="lightboxTitle">
     <div class="royal-lightbox__backdrop" id="lightboxBackdrop"></div>
     <div class="royal-lightbox__dialog">
@@ -923,11 +767,11 @@
           <img src="" alt="" id="lightboxImage" class="lightbox-img" style="display: none;">
           <div class="lightbox-placeholder-card" id="lightboxPlaceholder" style="display: none;">
             <div class="placeholder-icon">✦</div>
-            <h4 id="lightboxPlaceholderTitle">Espaço Reservado</h4>
-            <p id="lightboxPlaceholderText">Esta memória especial aguarda uma fotografia futura.</p>
+            <h4 id="lightboxPlaceholderTitle">Lembrança Especial</h4>
+            <p id="lightboxPlaceholderText"></p>
           </div>
         </div>
-        <div class="lightbox-details">
+        <div class="lightbox-details" id="lightboxDetails">
           <h3 id="lightboxTitle" class="lightbox-title">Memória</h3>
           <p id="lightboxDescription" class="lightbox-desc"></p>
         </div>

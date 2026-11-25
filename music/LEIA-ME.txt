@@ -1,36 +1,18 @@
 ================================================================================
-GUIA DA TRILHA SONORA — NOSSOS TRÊS ANOS
+PLAYLIST CONFIGURADA — NOSSOS TRÊS ANOS
 ================================================================================
 
-O site conta com um Player Editorial integrado completo, com controles de Play/Pause,
-Barra de Progresso interativa, Controle de Volume e Troca de Faixas.
+O player de áudio do site foi configurado com a sua seleção especial de músicas:
 
-COMO COLOCAR SUAS MÚSICAS NO SITE (MÉTODO ULTRA SIMPLES):
+1. love-michael-buble.mp3          -> L-O-V-E (Michael Bublé)
+2. the-way-you-look-tonight.mp3    -> The Way You Look Tonight (Frank Sinatra)
+3. pra-que-juizo.mp3               -> Pra Que Juízo (Henrique & Juliano)
+4. te-vivo.mp3                     -> Te Vivo (Luan Santana)
+5. pra-sempre-com-voce.mp3         -> Pra Sempre Com Você (Jorge & Mateus)
+6. os-anjos-cantam.mp3             -> Os Anjos Cantam Nosso Amor (Jorge & Mateus)
+
+COMO OUVIR:
 --------------------------------------------------------------------------------
-Basta salvar seus arquivos de áudio em formato MP3 diretamente nesta pasta (music/)
-com os seguintes nomes:
-
-1. song1.mp3       -> Canção Principal do Casal (Toca no topo da playlist)
-2. memoria-01.mp3  -> Trilha da Memória 01 (Primeiro Encontro)
-3. memoria-02.mp3  -> Trilha da Memória 02 (Viagens e Dias Felizes)
-
-Pronto! Assim que os arquivos estiverem aqui, basta clicar no botão de Play do site
-e a música tocará imediatamente, sem necessidade de editar nenhum código.
-
-COMO ADICIONAR MAIS MÚSICAS OU MUDAR NOMES/TÍTULOS:
---------------------------------------------------------------------------------
-Se você quiser renomear as músicas ou adicionar mais faixas à playlist:
-1. Abra o arquivo js/script.js.
-2. No topo, no objeto APP_CONFIG, localize o bloco `playlist: [ ... ]`.
-3. Altere o título, o artista e o caminho do arquivo (src). Exemplo:
-   {
-     title: "Nossa Música Favorita",
-     artist: "Artista",
-     src: "music/minha-musica.mp3",
-     tag: "Especial"
-   }
-
-IMPORTANTE:
-- Por respeito a você e às diretrizes do projeto, nenhuma música fictícia ou protegida
-  por direitos autorais foi baixada automaticamente.
-- O reprodutor NÃO inicia o áudio sozinho (sem autoplay agressivo), respeitando sua vontade.
+Basta salvar seus arquivos de música em formato MP3 diretamente nesta pasta (music/)
+com os nomes indicados acima.
+O site as reconhecerá e reproduzirá imediatamente!

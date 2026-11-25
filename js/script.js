@@ -9,69 +9,87 @@
   'use strict';
 
   /* --------------------------------------------------------------------------
-     1. CONFIGURAÇÃO GERAL DO SISTEMA (Fácil Manutenção)
+     1. CONFIGURAÇÃO GERAL DO SISTEMA (Playlist & Memórias Celestes)
      -------------------------------------------------------------------------- */
   const APP_CONFIG = {
     // Data de início do relacionamento: 25 de Novembro de 2023
     startDate: '2023-11-25T00:00:00',
 
-    // Playlist de trilhas sonoras (configure seus arquivos na pasta music/)
+    // Playlist com as músicas selecionadas pelo usuário
     playlist: [
       {
-        title: 'Nossa Canção Principal',
-        artist: 'Trilha Especial dos Nossos Três Anos',
-        src: 'music/song1.mp3',
-        tag: 'Principal'
+        title: 'L-O-V-E',
+        artist: 'Michael Bublé',
+        src: 'music/love-michael-buble.mp3',
+        tag: 'Romântica'
       },
       {
-        title: 'Primeiro Encontro & Encanto',
-        artist: 'Memória 01',
-        src: 'music/memoria-01.mp3',
-        tag: 'Memória'
+        title: 'The Way You Look Tonight',
+        artist: 'Frank Sinatra',
+        src: 'music/the-way-you-look-tonight.mp3',
+        tag: 'Clássica'
       },
       {
-        title: 'Nossas Viagens & Horizontes',
-        artist: 'Memória 02',
-        src: 'music/memoria-02.mp3',
-        tag: 'Viagem'
+        title: 'Pra Que Juízo',
+        artist: 'Henrique & Juliano',
+        src: 'music/pra-que-juizo.mp3',
+        tag: 'Nosso Amor'
+      },
+      {
+        title: 'Te Vivo',
+        artist: 'Luan Santana',
+        src: 'music/te-vivo.mp3',
+        tag: 'Especial'
+      },
+      {
+        title: 'Pra Sempre Com Você',
+        artist: 'Jorge & Mateus',
+        src: 'music/pra-sempre-com-voce.mp3',
+        tag: 'Para Sempre'
+      },
+      {
+        title: 'Os Anjos Cantam Nosso Amor',
+        artist: 'Jorge & Mateus',
+        src: 'music/os-anjos-cantam.mp3',
+        tag: 'Celebração'
       }
     ],
 
-    // Estrelas do Céu das Memórias
+    // Céu das Memórias (Único lugar com textos poéticos e afetivos)
     skyMemories: [
       {
-        x: 18,
-        y: 26,
-        title: 'A Primeira Estrela',
-        text: 'Guarda o momento exato em que percebi que seu sorriso iluminaria toda a minha vida.',
+        x: 16,
+        y: 28,
+        title: 'O Teu Sorriso',
+        text: 'O seu sorriso tem o dom raro de acalmar qualquer dia difícil e me lembrar da sorte imensa que é ter você na minha vida.',
         glyph: '✦'
       },
       {
-        x: 38,
-        y: 62,
-        title: 'A Estrela da Cumplicidade',
-        text: 'Lembrança dos dias simples em que um abraço apertado era tudo de que precisávamos.',
+        x: 36,
+        y: 64,
+        title: 'Nossos Abraços',
+        text: 'A paz de estar com você em silêncio e sentir que no seu abraço eu encontrei o meu lar mais seguro.',
         glyph: '✧'
       },
       {
-        x: 58,
-        y: 32,
-        title: 'A Estrela das Viagens',
-        text: 'O horizonte que descobrimos juntos e a certeza de que viajar com você é a melhor experiência.',
+        x: 55,
+        y: 30,
+        title: 'Nossas Viagens',
+        text: 'Cada viagem que fizemos juntos, cada café da manhã sem pressa e os risos soltos se tornaram os melhores dias da minha história.',
         glyph: '✦'
       },
       {
-        x: 76,
+        x: 74,
         y: 68,
-        title: 'A Estrela da Ternura',
-        text: 'Seu jeito carinhoso e atencioso, que faz qualquer dia comum parecer um conto especial.',
+        title: 'A Sua Doçura',
+        text: 'A sua bondade, sua inteligência e o jeito carinhoso como cuida de nós me fazem admirar a mulher linda que você é a cada amanhecer.',
         glyph: '✧'
       },
       {
         x: 88,
         y: 22,
-        title: 'A Estrela dos Três Anos',
-        text: 'A celebração dos nossos 1.096 dias juntos e o prelúdio de toda uma vida pela frente.',
+        title: 'Três Anos e Todo o Sempre',
+        text: 'Três anos se passaram rápido como um suspiro bom. Se eu pudesse viver tudo de novo, escolheria você em cada detalhe, infinitas vezes.',
         glyph: '✦'
       }
     ],
@@ -84,7 +102,7 @@
   };
 
   /* --------------------------------------------------------------------------
-     2. GERENCIADOR DE REPRODUÇÃO DE ÁUDIO (SoundtrackManager)
+     2. GERENCIADOR DO REPRODUTOR DE ÁUDIO (SoundtrackManager)
      -------------------------------------------------------------------------- */
   class SoundtrackManager {
     constructor(config) {
@@ -92,7 +110,7 @@
       this.currentIndex = 0;
       this.isPlaying = false;
       this.isMuted = false;
-      this.previousVolume = 0.7;
+      this.previousVolume = 0.75;
 
       // Elementos do DOM
       this.audio = document.querySelector('#mainAudioPlayer');
@@ -100,6 +118,7 @@
       this.prevBtn = document.querySelector('#prevTrackBtn');
       this.nextBtn = document.querySelector('#nextTrackBtn');
       this.topbarAudioBtn = document.querySelector('#topbarAudioBtn');
+      this.topbarTrackName = document.querySelector('#topbarTrackName');
       this.vinylDisk = document.querySelector('#vinylDisk');
       this.trackTitle = document.querySelector('#trackTitle');
       this.trackArtist = document.querySelector('#trackArtist');
@@ -113,15 +132,13 @@
       this.playlistList = document.querySelector('#playlistList');
 
       if (!this.audio) return;
-
       this.init();
     }
 
     init() {
-      this.audio.volume = parseFloat(this.volumeSlider ? this.volumeSlider.value : 0.7);
+      this.audio.volume = parseFloat(this.volumeSlider ? this.volumeSlider.value : 0.75);
       this.loadTrack(this.currentIndex, false);
 
-      // Eventos de controles
       if (this.playPauseBtn) {
         this.playPauseBtn.addEventListener('click', () => this.togglePlayPause());
       }
@@ -138,18 +155,15 @@
         this.nextBtn.addEventListener('click', () => this.nextTrack());
       }
 
-      // Eventos do elemento de áudio
       this.audio.addEventListener('timeupdate', () => this.onTimeUpdate());
       this.audio.addEventListener('loadedmetadata', () => this.onLoadedMetadata());
       this.audio.addEventListener('ended', () => this.nextTrack());
-      this.audio.addEventListener('error', (e) => this.onAudioError(e));
+      this.audio.addEventListener('error', () => this.onAudioError());
 
-      // Barra de progresso interativa
       if (this.progressBarWrap) {
         this.progressBarWrap.addEventListener('click', (e) => this.seek(e));
       }
 
-      // Controle de volume
       if (this.volumeSlider) {
         this.volumeSlider.addEventListener('input', (e) => {
           this.setVolume(parseFloat(e.target.value));
@@ -160,7 +174,6 @@
         this.volumeToggleBtn.addEventListener('click', () => this.toggleMute());
       }
 
-      // Clique nos itens da playlist
       if (this.playlistList) {
         const items = this.playlistList.querySelectorAll('.playlist-item');
         items.forEach((item) => {
@@ -183,7 +196,8 @@
 
       if (this.trackTitle) this.trackTitle.textContent = track.title;
       if (this.trackArtist) this.trackArtist.textContent = track.artist;
-      if (this.trackStatusTag) this.trackStatusTag.textContent = track.tag || 'Trilha Selecionada';
+      if (this.trackStatusTag) this.trackStatusTag.textContent = track.tag || 'Nossa Seleção Musical';
+      if (this.topbarTrackName) this.topbarTrackName.textContent = track.title;
 
       this.audio.src = track.src;
       this.updatePlaylistUI();
@@ -212,11 +226,10 @@
             this.updatePlayPauseUI(true);
           })
           .catch(() => {
-            // Se o arquivo não existir ou o navegador bloquear
             this.isPlaying = false;
             this.updatePlayPauseUI(false);
             if (this.trackStatusTag) {
-              this.trackStatusTag.textContent = 'Aguardando arquivo de música em music/';
+              this.trackStatusTag.textContent = 'Adicione o MP3 em music/ para ouvir';
             }
           });
       }
@@ -250,8 +263,8 @@
 
       if (this.topbarAudioBtn) {
         this.topbarAudioBtn.classList.toggle('is-playing', playing);
-        const iconPlay = this.topbarAudioBtn.querySelector('.audio-icon--play');
-        const iconPause = this.topbarAudioBtn.querySelector('.audio-icon--pause');
+        const iconPlay = this.topbarAudioBtn.querySelector('.icon-play');
+        const iconPause = this.topbarAudioBtn.querySelector('.icon-pause');
         if (iconPlay && iconPause) {
           iconPlay.style.display = playing ? 'none' : 'block';
           iconPause.style.display = playing ? 'block' : 'none';
@@ -298,7 +311,7 @@
 
     onAudioError() {
       if (this.trackStatusTag) {
-        this.trackStatusTag.textContent = 'Arquivo de áudio não encontrado na pasta music/';
+        this.trackStatusTag.textContent = 'Arquivo de música aguardando cópia em music/';
       }
       this.updatePlayPauseUI(false);
     }
@@ -323,7 +336,7 @@
         this.previousVolume = this.audio.volume;
         this.setVolume(0);
       } else {
-        this.setVolume(this.previousVolume || 0.7);
+        this.setVolume(this.previousVolume || 0.75);
       }
     }
 
@@ -345,7 +358,7 @@
   }
 
   /* --------------------------------------------------------------------------
-     3. CONTADOR DE TEMPO JUNTOS (RelationshipCounter - Exatidão dos 3 Anos)
+     3. CONTADOR DE TEMPO JUNTOS (3 Anos de Namoro)
      -------------------------------------------------------------------------- */
   class RelationshipCounter {
     constructor(startDateString) {
@@ -369,7 +382,6 @@
       const now = new Date();
       const diffMs = Math.max(0, now - this.startDate);
 
-      // Cálculo de anos completos
       let years = now.getFullYear() - this.startDate.getFullYear();
       const m = now.getMonth() - this.startDate.getMonth();
       if (m < 0 || (m === 0 && now.getDate() < this.startDate.getDate())) {
@@ -391,7 +403,7 @@
   }
 
   /* --------------------------------------------------------------------------
-     4. GERENCIADOR DO LIGHTBOX (Acessível e Universal)
+     4. GERENCIADOR DO LIGHTBOX (Sem poluição de texto nas fotos comuns)
      -------------------------------------------------------------------------- */
   class LightboxManager {
     constructor() {
@@ -402,6 +414,7 @@
       this.placeholderEl = document.querySelector('#lightboxPlaceholder');
       this.placeholderTitle = document.querySelector('#lightboxPlaceholderTitle');
       this.placeholderText = document.querySelector('#lightboxPlaceholderText');
+      this.detailsEl = document.querySelector('#lightboxDetails');
       this.titleEl = document.querySelector('#lightboxTitle');
       this.descEl = document.querySelector('#lightboxDescription');
       this.lastFocusedElement = null;
@@ -411,7 +424,6 @@
     }
 
     init() {
-      // Evento de fechar
       if (this.closeBtn) {
         this.closeBtn.addEventListener('click', () => this.close());
       }
@@ -419,51 +431,53 @@
         this.backdrop.addEventListener('click', () => this.close());
       }
 
-      // Fechar com Escape
       document.addEventListener('keydown', (e) => {
         if (e.key === 'Escape' && this.lightbox.classList.contains('is-open')) {
           this.close();
         }
       });
 
-      // Registrar gatilhos com data-lightbox
+      // Fotografias normais (Galeria e Timeline): limpas, sem texto
       document.querySelectorAll('[data-lightbox]').forEach((trigger) => {
         trigger.addEventListener('click', () => {
           const imageSrc = trigger.getAttribute('data-lightbox');
-          const caption = trigger.getAttribute('data-caption') || '';
-          const title = trigger.querySelector('.overlay-title, strong, h3')
-            ? trigger.querySelector('.overlay-title, strong, h3').textContent
-            : 'Memória Especial';
-
           this.open({
             src: imageSrc,
-            title: title,
-            description: caption,
+            title: '',
+            description: '',
+            isMemory: false,
             trigger: trigger
           });
         });
       });
     }
 
-    open({ src, title, description, trigger }) {
+    open({ src, title = '', description = '', isMemory = false, trigger }) {
       this.lastFocusedElement = trigger || document.activeElement;
 
-      if (this.titleEl) this.titleEl.textContent = title;
-      if (this.descEl) this.descEl.textContent = description;
+      if (isMemory && title) {
+        // Céu das Memórias ou Selo Secreto: exibe texto poético
+        if (this.detailsEl) this.detailsEl.style.display = 'block';
+        if (this.titleEl) this.titleEl.textContent = title;
+        if (this.descEl) this.descEl.textContent = description;
+      } else {
+        // Fotografias normais: limpas e sem texto
+        if (this.detailsEl) this.detailsEl.style.display = 'none';
+      }
 
       if (src && src.trim() !== '') {
-        // Imagem real disponível
         this.imageEl.src = src;
-        this.imageEl.alt = title;
+        this.imageEl.alt = 'Fotografia do casal';
         this.imageEl.style.display = 'block';
         this.placeholderEl.style.display = 'none';
       } else {
-        // Placeholder elegante para fotos futuras
         this.imageEl.style.display = 'none';
         this.placeholderEl.style.display = 'block';
-        if (this.placeholderTitle) this.placeholderTitle.textContent = title;
+        if (this.placeholderTitle) {
+          this.placeholderTitle.textContent = title || 'Lembrança Especial';
+        }
         if (this.placeholderText) {
-          this.placeholderText.textContent = description || 'Adicione a sua fotografia neste espaço para eternizar mais um instante dos nossos três anos.';
+          this.placeholderText.textContent = description || 'Espaço reservado para mais uma fotografia dos nossos três anos.';
         }
       }
 
@@ -471,7 +485,6 @@
       this.lightbox.setAttribute('aria-hidden', 'false');
       document.body.classList.add('no-scroll');
 
-      // Foco para acessibilidade
       if (this.closeBtn) {
         this.closeBtn.focus();
       }
@@ -489,11 +502,11 @@
   }
 
   /* --------------------------------------------------------------------------
-     5. CARTA DE AMOR REAL (Leitura, Edição & Persistência Segura)
+     5. CARTA DE AMOR REAL
      -------------------------------------------------------------------------- */
   class LoveLetterManager {
     constructor() {
-      this.storageKey = 'royal-love-letter-v2';
+      this.storageKey = 'royal-love-letter-v3';
       this.viewBtn = document.querySelector('#viewLetterModeBtn');
       this.editBtn = document.querySelector('#editLetterModeBtn');
       this.displayView = document.querySelector('#royalLetterDisplay');
@@ -505,9 +518,9 @@
       this.statusText = document.querySelector('#letterSaveStatus');
 
       this.defaultLetterText = 
-        `Hoje comemoramos três anos desde o dia em que nossos caminhos se uniram para sempre. Quando olho para trás, para aquele 25 de novembro de 2023, vejo com clareza como cada dia ao seu lado superou qualquer expectativa que meu coração já teve.\n\n` +
-        `Você é a mulher mais maravilhosa que o destino poderia ter me presenteado: inteligente, delicada, forte e dona do sorriso mais lindo do mundo. Nossas conversas, nossas viagens a resorts, nossos momentos de descanso e até os silêncios compartilhados me provam, a cada amanhecer, que o amor verdadeiro é o nosso maior tesouro.\n\n` +
-        `Obrigado por ser minha parceira, minha confidente e a verdadeira princesa da minha vida. Que esses três anos sejam apenas as primeiras páginas de um livro lindo e infinito que continuaremos escrevendo juntos.`;
+        `Hoje completamos três anos de um amor que se renova a cada amanhecer. Quando fecho os olhos e me lembro daquele 25 de novembro de 2023, percebo com clareza o tamanho da bênção que foi ter você entrando na minha vida.\n\n` +
+        `Você é a mulher mais maravilhosa que eu poderia sonhar em ter ao meu lado: carinhosa, inteligente, autêntica e dona do sorriso mais lindo deste mundo. Em cada viagem a resorts, em cada conversa longa ou nos dias mais calmos em que apenas descansamos juntos, você transforma qualquer momento comum em algo precioso.\n\n` +
+        `Obrigado por ser a minha parceira de vida, minha confidente e a verdadeira princesa dos meus dias. Três anos são apenas o primeiro capítulo da história linda que ainda continuaremos construindo juntos.`;
 
       if (!this.displayView || !this.editorView) return;
       this.init();
@@ -556,13 +569,13 @@
       if (text) {
         localStorage.setItem(this.storageKey, text);
         this.renderText(text);
-        this.showStatus('Carta selada e salva com sucesso!');
+        this.showStatus('Carta salva com sucesso!');
         this.switchMode('view');
       }
     }
 
     restoreDefault() {
-      if (confirm('Deseja restaurar a carta original de celebração dos 3 anos?')) {
+      if (confirm('Deseja restaurar a carta original dos três anos?')) {
         localStorage.removeItem(this.storageKey);
         if (this.textarea) this.textarea.value = this.defaultLetterText;
         this.renderText(this.defaultLetterText);
@@ -582,10 +595,9 @@
         this.bodyText.appendChild(p);
       });
 
-      // Fechamento nobre
       const closing = document.createElement('p');
       closing.className = 'parchment-closing';
-      closing.innerHTML = 'Com todo o meu amor e admiração eterna,<br><strong>Para sempre seu. ❤️</strong>';
+      closing.innerHTML = 'Com todo o meu amor, admiração e carinho eterno,<br><strong>Para sempre seu. ❤️</strong>';
       this.bodyText.appendChild(closing);
     }
 
@@ -599,7 +611,7 @@
   }
 
   /* --------------------------------------------------------------------------
-     6. CÉU DAS MEMÓRIAS (Constelações Interativas)
+     6. CÉU DAS MEMÓRIAS (Constelações Poéticas)
      -------------------------------------------------------------------------- */
   class CelestialSky {
     constructor(containerId, memories, lightbox) {
@@ -632,6 +644,7 @@
             src: '',
             title: memory.title,
             description: memory.text,
+            isMemory: true,
             trigger: star
           });
         });
@@ -642,70 +655,56 @@
   }
 
   /* --------------------------------------------------------------------------
-     7. MAPA INTERATIVO (Pontos Especiais)
-     -------------------------------------------------------------------------- */
-  class AffectionateMap {
-    constructor() {
-      this.mapContainer = document.querySelector('#interactiveMap');
-      this.infoBox = document.querySelector('#mapInfoBox');
-
-      if (!this.mapContainer || !this.infoBox) return;
-      this.init();
-    }
-
-    init() {
-      const pins = this.mapContainer.querySelectorAll('.map-pin');
-      pins.forEach((pin) => {
-        pin.addEventListener('click', () => {
-          const place = pin.getAttribute('data-place');
-          const desc = pin.getAttribute('data-desc');
-          this.infoBox.innerHTML = `<strong>${place}:</strong> ${desc}`;
-        });
-      });
-    }
-  }
-
-  /* --------------------------------------------------------------------------
-     8. SISTEMA DE NAVEGAÇÃO & DRAWER MOBILE
+     7. SISTEMA DE NAVEGAÇÃO & HEADER ELEGANTE
      -------------------------------------------------------------------------- */
   class NavigationManager {
     constructor() {
+      this.header = document.querySelector('#royalTopbar');
       this.toggleBtn = document.querySelector('#mobileMenuToggle');
       this.drawer = document.querySelector('#mobileDrawer');
-      this.navLinks = document.querySelectorAll('.royal-nav a, .mobile-drawer a');
+      this.navLinks = document.querySelectorAll('.header-nav a, .header-drawer a');
 
-      if (!this.toggleBtn || !this.drawer) return;
+      if (!this.header) return;
       this.init();
     }
 
     init() {
-      this.toggleBtn.addEventListener('click', () => {
-        const isOpen = this.drawer.classList.contains('is-open');
-        this.drawer.classList.toggle('is-open', !isOpen);
-        this.drawer.setAttribute('aria-hidden', isOpen ? 'true' : 'false');
-        this.toggleBtn.setAttribute('aria-expanded', !isOpen ? 'true' : 'false');
+      // Efeito de rolagem no cabeçalho
+      window.addEventListener('scroll', () => {
+        if (window.scrollY > 30) {
+          this.header.classList.add('is-scrolled');
+        } else {
+          this.header.classList.remove('is-scrolled');
+        }
       });
 
-      // Fechar drawer ao clicar em links
-      this.navLinks.forEach((link) => {
-        link.addEventListener('click', () => {
-          this.drawer.classList.remove('is-open');
-          this.drawer.setAttribute('aria-hidden', 'true');
-          this.toggleBtn.setAttribute('aria-expanded', 'false');
+      if (this.toggleBtn && this.drawer) {
+        this.toggleBtn.addEventListener('click', () => {
+          const isOpen = this.drawer.classList.contains('is-open');
+          this.drawer.classList.toggle('is-open', !isOpen);
+          this.drawer.setAttribute('aria-hidden', isOpen ? 'true' : 'false');
+          this.toggleBtn.setAttribute('aria-expanded', !isOpen ? 'true' : 'false');
         });
-      });
+
+        this.navLinks.forEach((link) => {
+          link.addEventListener('click', () => {
+            this.drawer.classList.remove('is-open');
+            this.drawer.setAttribute('aria-hidden', 'true');
+            this.toggleBtn.setAttribute('aria-expanded', 'false');
+          });
+        });
+      }
     }
   }
 
   /* --------------------------------------------------------------------------
-     9. CANVAS DE PARTÍCULAS AMBIENTE OTIMIZADO (Com Pause em Background)
+     8. CANVAS DE PARTÍCULAS SUTIS
      -------------------------------------------------------------------------- */
   class AmbientCanvas {
     constructor(canvasId) {
       this.canvas = document.querySelector(canvasId);
       if (!this.canvas) return;
 
-      // Respeitar preferência por redução de movimento
       const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
       if (prefersReducedMotion) return;
 
@@ -721,7 +720,6 @@
       this.resize();
       window.addEventListener('resize', () => this.resize());
 
-      // Pausar renderização quando a aba estiver em segundo plano
       document.addEventListener('visibilitychange', () => {
         if (document.hidden) {
           this.isActive = false;
@@ -738,15 +736,15 @@
     resize() {
       this.canvas.width = window.innerWidth;
       this.canvas.height = window.innerHeight;
-      const count = Math.min(60, Math.floor(window.innerWidth / 20));
+      const count = Math.min(50, Math.floor(window.innerWidth / 24));
 
       this.particles = Array.from({ length: count }, () => ({
         x: Math.random() * this.canvas.width,
         y: Math.random() * this.canvas.height,
         radius: Math.random() * 1.5 + 0.5,
-        speedY: Math.random() * 0.35 + 0.1,
-        speedX: (Math.random() - 0.5) * 0.15,
-        alpha: Math.random() * 0.5 + 0.15
+        speedY: Math.random() * 0.3 + 0.08,
+        speedX: (Math.random() - 0.5) * 0.12,
+        alpha: Math.random() * 0.45 + 0.15
       }));
     }
 
@@ -776,7 +774,7 @@
   }
 
   /* --------------------------------------------------------------------------
-     10. CELEBRAÇÃO DE PÉTALAS REAIS (PetalBurst - Otimizado e Seguro)
+     9. CELEBRAÇÃO DE PÉTALAS
      -------------------------------------------------------------------------- */
   class PetalBurst {
     static burst(amount = 25) {
@@ -790,9 +788,9 @@
         petal.textContent = i % 2 === 0 ? '❦' : '✦';
         petal.style.left = `${Math.random() * 100}vw`;
         petal.style.color = colors[Math.floor(Math.random() * colors.length)];
-        petal.style.fontSize = `${14 + Math.random() * 20}px`;
+        petal.style.fontSize = `${14 + Math.random() * 18}px`;
         petal.style.animationDuration = `${5 + Math.random() * 4}s`;
-        petal.style.animationDelay = `${Math.random() * 0.5}s`;
+        petal.style.animationDelay = `${Math.random() * 0.4}s`;
         petal.style.opacity = `${0.6 + Math.random() * 0.4}`;
 
         document.body.appendChild(petal);
@@ -802,10 +800,9 @@
   }
 
   /* --------------------------------------------------------------------------
-     11. INICIALIZAÇÃO DA APLICAÇÃO (App Bootstrap)
+     10. INICIALIZAÇÃO
      -------------------------------------------------------------------------- */
   document.addEventListener('DOMContentLoaded', () => {
-    // 1. Abertura Solene
     const royalOpening = document.querySelector('#royalOpening');
     const enterExperienceBtn = document.querySelector('#enterExperienceBtn');
 
@@ -819,31 +816,14 @@
       });
     }
 
-    // 2. Lightbox
     const lightbox = new LightboxManager();
-
-    // 3. Player de Trilha Sonora
-    const soundtrack = new SoundtrackManager(APP_CONFIG);
-
-    // 4. Contador dos Três Anos
+    new SoundtrackManager(APP_CONFIG);
     new RelationshipCounter(APP_CONFIG.startDate);
-
-    // 5. Carta de Amor Real
     new LoveLetterManager();
-
-    // 6. Céu das Memórias
     new CelestialSky('#celestialVault', APP_CONFIG.skyMemories, lightbox);
-
-    // 7. Mapa Afetivo
-    new AffectionateMap();
-
-    // 8. Navegação e Mobile Drawer
     new NavigationManager();
-
-    // 9. Canvas Ambiente
     new AmbientCanvas('#ambientCanvas');
 
-    // 10. Botão Secreto de Mensagem Íntima
     const secretSealBtn = document.querySelector('#secretSealBtn');
     if (secretSealBtn) {
       secretSealBtn.addEventListener('click', () => {
@@ -851,12 +831,12 @@
           src: '',
           title: APP_CONFIG.secretMessage.title,
           description: APP_CONFIG.secretMessage.text,
+          isMemory: true,
           trigger: secretSealBtn
         });
       });
     }
 
-    // 11. Botão de Celebração de Pétalas
     const celebrateBurstBtn = document.querySelector('#celebrateBurstBtn');
     if (celebrateBurstBtn) {
       celebrateBurstBtn.addEventListener('click', () => {
@@ -864,7 +844,6 @@
       });
     }
 
-    // 12. Intersection Observer para Revelação Suave (Scroll Reveal)
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
