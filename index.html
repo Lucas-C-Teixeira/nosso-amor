@@ -3,11 +3,11 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Nossos Três Anos — Para o Amor da Minha Vida</title>
-  <meta name="description" content="Três anos celebrando o nosso amor, nossas viagens e uma história que se faz eterna a cada dia.">
+  <title>Nosso Amor — 3 Anos Juntos</title>
+  <meta name="description" content="25 de Novembro de 2023 — 25 de Novembro de 2026 • Três Anos de Namoro.">
   <meta name="theme-color" content="#34111A">
 
-  <!-- Tipografia Editorial & Real: Playfair Display, Cinzel e Plus Jakarta Sans -->
+  <!-- Tipografia Real & Editorial -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -19,13 +19,10 @@
   <!-- Canvas ambiente de partículas douradas suaves -->
   <canvas id="ambientCanvas" aria-hidden="true"></canvas>
 
-  <!-- Player central de áudio HTML5 -->
-  <audio id="mainAudioPlayer" preload="none"></audio>
-
   <!-- ============================================================
-       ABERTURA SOLENE
+       ABERTURA DO SITE
        ============================================================ -->
-  <aside class="royal-opening" id="royalOpening" aria-label="Entrada solene">
+  <aside class="royal-opening" id="royalOpening" aria-label="Entrada">
     <div class="royal-opening__aura" aria-hidden="true"></div>
     <div class="royal-opening__crest" aria-hidden="true">
       <svg width="56" height="56" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -36,13 +33,13 @@
         <circle cx="32" cy="28" r="3" fill="#C5A059" />
       </svg>
     </div>
-    <p class="royal-eyebrow">25 de Novembro de 2023 — 25 de Novembro de 2026</p>
+    <p class="royal-eyebrow">25/11/2023 — 25/11/2026</p>
     <h1 class="royal-opening__title">Para o amor da minha vida</h1>
     <p class="royal-opening__subtitle">
-      Três anos desde que o acaso nos uniu e o amor nos escolheu. Um refúgio dedicado à mulher que transformou a minha vida em poesia.
+      Três anos da nossa história.
     </p>
     <button class="btn-royal" id="enterExperienceBtn" type="button">
-      <span>Entrar na nossa história</span>
+      <span>Entrar</span>
       <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
         <polyline points="9 18 15 12 9 6"></polyline>
       </svg>
@@ -50,46 +47,34 @@
   </aside>
 
   <!-- ============================================================
-       CABEÇALHO REESTRUTURADO: ULTRA ELEGANTE, MINIMALISTA E NOBRE
+       CABEÇALHO FLUTUANTE
        ============================================================ -->
   <header class="royal-header" id="royalTopbar">
     <div class="header-inner">
-      
-      <!-- Marca / Monograma Real -->
       <a href="#inicio" class="header-brand" aria-label="Voltar ao início">
         <span class="header-brand__crown" aria-hidden="true">✦</span>
         <div class="header-brand__titles">
           <span class="header-brand__name">Nosso Amor</span>
-          <span class="header-brand__subtitle">III Anos</span>
+          <span class="header-brand__subtitle">3 Anos</span>
         </div>
       </a>
 
-      <!-- Navegação Editorial Curada e Limpa -->
-      <nav class="header-nav" aria-label="Navegação do site">
+      <nav class="header-nav" aria-label="Navegação">
         <a href="#inicio" class="nav-item">Início</a>
-        <a href="#historia" class="nav-item">Nossa História</a>
+        <a href="#historia" class="nav-item">História</a>
         <a href="#galeria" class="nav-item">Galeria</a>
-        <a href="#trilha" class="nav-item">Trilha Sonora</a>
-        <a href="#carta" class="nav-item">Nossa Carta</a>
-        <a href="#ceu" class="nav-item">Céu das Memórias</a>
+        <a href="#trilha" class="nav-item">Músicas</a>
+        <a href="#carta" class="nav-item">Carta</a>
+        <a href="#contador" class="nav-item">Tempo</a>
       </nav>
 
-      <!-- Ações do Cabeçalho: Player Discreto & Menu Mobile -->
       <div class="header-actions">
-        <button class="header-music-pill" id="topbarAudioBtn" type="button" aria-label="Tocar ou pausar música" title="Trilha Sonora">
-          <span class="music-pill-icon" aria-hidden="true">
-            <svg class="icon-play" width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
-              <polygon points="6 4 20 12 6 20 6 4"></polygon>
-            </svg>
-            <svg class="icon-pause" width="14" height="14" viewBox="0 0 24 24" fill="currentColor" style="display:none;">
-              <rect x="6" y="4" width="4" height="16"></rect>
-              <rect x="14" y="4" width="4" height="16"></rect>
-            </svg>
-          </span>
-          <span class="music-pill-text" id="topbarTrackName">L-O-V-E</span>
-        </button>
+        <a href="#trilha" class="header-music-pill" aria-label="Ir para músicas" title="Ir para as músicas">
+          <span class="music-pill-icon" aria-hidden="true">🎵</span>
+          <span class="music-pill-text">Músicas</span>
+        </a>
 
-        <button class="mobile-toggle" id="mobileMenuToggle" type="button" aria-label="Menu de seções" aria-expanded="false" aria-controls="mobileDrawer">
+        <button class="mobile-toggle" id="mobileMenuToggle" type="button" aria-label="Menu" aria-expanded="false" aria-controls="mobileDrawer">
           <span class="toggle-bar"></span>
           <span class="toggle-bar"></span>
         </button>
@@ -98,22 +83,20 @@
 
     <!-- Menu Drawer Mobile -->
     <div class="header-drawer" id="mobileDrawer" aria-hidden="true">
-      <nav class="drawer-nav" aria-label="Navegação em celular">
+      <nav class="drawer-nav" aria-label="Menu">
         <a href="#inicio" class="drawer-link">Início</a>
-        <a href="#historia" class="drawer-link">Nossa História</a>
+        <a href="#historia" class="drawer-link">História</a>
         <a href="#galeria" class="drawer-link">Galeria</a>
-        <a href="#trilha" class="drawer-link">Trilha Sonora</a>
-        <a href="#carta" class="drawer-link">Nossa Carta</a>
-        <a href="#contador" class="drawer-link">Nosso Tempo</a>
-        <a href="#ceu" class="drawer-link">Céu das Memórias</a>
-        <a href="#futuro" class="drawer-link">O Nosso Sempre</a>
+        <a href="#trilha" class="drawer-link">Músicas</a>
+        <a href="#carta" class="drawer-link">Carta</a>
+        <a href="#contador" class="drawer-link">Tempo</a>
       </nav>
     </div>
   </header>
 
   <main id="inicio">
     <!-- ============================================================
-         HERO SECTION: POÉTICA, MADURA E ELEGANTE
+         HERO SECTION: LIMPO E SEM TEXTOS DE IA
          ============================================================ -->
     <section class="royal-hero royal-section">
       <div class="hero-layout">
@@ -123,46 +106,43 @@
             <span>25 de Novembro de 2023 — 25 de Novembro de 2026</span>
           </div>
           <h2 class="hero-title">
-            Três anos escolhendo você todos os dias, com a mesma certeza do primeiro olhar.
+            Três Anos Juntos.
           </h2>
           <p class="hero-description">
-            Dizem que o tempo corre quando estamos felizes, mas ao seu lado cada instante ganha eternidade. Este lugar foi feito para guardar com delicadeza o que construímos: as primeiras viagens, os risos despretensiosos e o privilégio imenso de caminhar junto com a mulher da minha vida.
+            Nosso espaço para guardar nossas fotos, nossas viagens e os momentos que vivemos juntos.
           </p>
           <div class="hero-actions">
             <a href="#historia" class="btn-royal">
-              <span>Nossa Trajetória</span>
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                <polyline points="6 9 12 15 18 9"></polyline>
-              </svg>
+              <span>Nossa História</span>
             </a>
-            <a href="#carta" class="btn-royal-outline">Ler Carta</a>
+            <a href="#trilha" class="btn-royal-outline">Ouvir Músicas</a>
           </div>
         </div>
 
-        <!-- Vitrine de Retratos Puros (SEM TEXTOS SOBRE AS FOTOS) -->
-        <div class="hero-portraits" aria-label="Retratos do casal">
+        <!-- Vitrine de Fotos Limpas (SEM TEXTO ALGUM EM CIMA DAS FOTOS) -->
+        <div class="hero-portraits" aria-label="Fotos do casal">
           <div class="clean-portrait clean-portrait--1 reveal-on-scroll">
             <div class="portrait-glass-mat">
-              <img src="images/FOTO_01.jpeg" alt="Fotografia do casal" loading="eager" decoding="async">
+              <img src="images/FOTO_01.jpeg" alt="Foto do casal" loading="eager" decoding="async">
             </div>
           </div>
 
           <div class="clean-portrait clean-portrait--2 reveal-on-scroll">
             <div class="portrait-glass-mat">
-              <img src="images/FOTO_02.jpeg" alt="Fotografia do casal" loading="lazy" decoding="async">
+              <img src="images/FOTO_02.jpeg" alt="Foto do casal" loading="lazy" decoding="async">
             </div>
           </div>
 
           <div class="clean-portrait clean-portrait--3 reveal-on-scroll">
             <div class="portrait-glass-mat">
-              <img src="images/FOTO_03.jpeg" alt="Fotografia do casal" loading="lazy" decoding="async">
+              <img src="images/FOTO_03.jpeg" alt="Foto do casal" loading="lazy" decoding="async">
             </div>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- Divisor Ornamental Real -->
+    <!-- Divisor Ornamental -->
     <div class="royal-divider" aria-hidden="true">
       <span class="divider-line"></span>
       <span class="divider-ornament">❦</span>
@@ -170,136 +150,129 @@
     </div>
 
     <!-- ============================================================
-         TIMELINE SECTION: A NOSSA HISTÓRIA
+         TIMELINE SECTION: APENAS OS TEXTOS REAIS ORIGINAIS
          ============================================================ -->
     <section class="royal-section timeline-section" id="historia">
       <div class="section-header reveal-on-scroll">
-        <p class="royal-eyebrow">Nossa Trajetória</p>
-        <h2 class="section-title">Os Capítulos Mais Lindos da Minha Vida</h2>
-        <p class="section-subtitle">
-          Não foram apenas dias que se passaram; foram momentos em que o amor virou lar e a cumplicidade se tornou o nosso porto seguro.
-        </p>
+        <p class="royal-eyebrow">Linha do Tempo</p>
+        <h2 class="section-title">Nossa História</h2>
       </div>
 
       <div class="timeline-container">
-        <!-- Item 1: O Início -->
+        <!-- Item 1: O Início (Texto Original Real) -->
         <article class="timeline-item reveal-on-scroll">
           <div class="timeline-marker">
             <div class="marker-circle">I</div>
           </div>
           <div class="timeline-media">
             <div class="media-frame" data-lightbox="images/NH_01.jpg">
-              <img src="images/NH_01.jpg" alt="Registro do casal" loading="lazy" decoding="async">
+              <img src="images/NH_01.jpg" alt="Foto do início" loading="lazy" decoding="async">
               <span class="zoom-indicator" aria-hidden="true">⤢</span>
             </div>
           </div>
           <div class="timeline-card">
             <time datetime="2023-11-25" class="timeline-date">
-              <span class="date-highlight">25 de Novembro de 2023</span>
-              <span class="date-badge">O Marco Inicial</span>
+              <span class="date-highlight">25/11/2023</span>
             </time>
-            <h3 class="timeline-card__title">O Dia em que Meu Mundo Mudou</h3>
+            <h3 class="timeline-card__title">O dia em que tudo começou</h3>
             <p class="timeline-card__text">
-              25 de novembro de 2023. O dia em que nossos caminhos se cruzaram e começou a história mais bonita que eu já vivi. Ali nascia o que hoje é minha maior paz e felicidade diária.
+              Foi nesse dia que começa uma nova parte da história da minha vida.
             </p>
           </div>
         </article>
 
-        <!-- Item 2: Primeira Aventura -->
+        <!-- Item 2: Primeira Aventura (Texto Original Real) -->
         <article class="timeline-item reveal-on-scroll">
           <div class="timeline-marker">
             <div class="marker-circle">II</div>
           </div>
           <div class="timeline-media">
             <div class="media-frame" data-lightbox="images/NH_02.jpg">
-              <img src="images/NH_02.jpg" alt="Registro do casal" loading="lazy" decoding="async">
+              <img src="images/NH_02.jpg" alt="Primeira aventura" loading="lazy" decoding="async">
               <span class="zoom-indicator" aria-hidden="true">⤢</span>
             </div>
           </div>
           <div class="timeline-card">
             <time class="timeline-date">
-              <span class="date-highlight">Primeiras Memórias</span>
-              <span class="date-badge">Aventura Juntos</span>
+              <span class="date-highlight">Primeira Viagem</span>
             </time>
-            <h3 class="timeline-card__title">Nossa Primeira Aventura Juntos</h3>
+            <h3 class="timeline-card__title">Primeira aventura juntos</h3>
             <p class="timeline-card__text">
-              A primeira viagem que fizemos lado a lado. Foi ali que tive a certeza mais clara do meu coração: não existia mais nenhum plano de futuro em que você não fosse o meu destino e a minha melhor companhia.
+              Depois dessa viagem, percebi que não há mais planos sem você. Peça essencial nos meus momentos.
             </p>
           </div>
         </article>
 
-        <!-- Item 3: A Certeza -->
+        <!-- Item 3: A Certeza (Texto Original Real) -->
         <article class="timeline-item reveal-on-scroll">
           <div class="timeline-marker">
             <div class="marker-circle">III</div>
           </div>
           <div class="timeline-media">
             <div class="media-frame" data-lightbox="images/NH_03.jpg">
-              <img src="images/NH_03.jpg" alt="Registro do casal" loading="lazy" decoding="async">
+              <img src="images/NH_03.jpg" alt="Quando eu soube" loading="lazy" decoding="async">
               <span class="zoom-indicator" aria-hidden="true">⤢</span>
             </div>
           </div>
           <div class="timeline-card">
             <time class="timeline-date">
-              <span class="date-highlight">O Momento da Certeza</span>
-              <span class="date-badge">Cumplicidade</span>
+              <span class="date-highlight">Certeza</span>
             </time>
-            <h3 class="timeline-card__title">O Momento da Certeza Absoluta</h3>
+            <h3 class="timeline-card__title">Quando eu soube</h3>
             <p class="timeline-card__text">
-              Um instante simples e sereno em que olhei para você e soube com todas as forças: encontrei a parceira dos meus sonhos, a mulher com quem quero dividir cada conquista pelo resto da vida.
+              Quando me dei conta que teria uma parceira maravilhosa pro resto da vida.
             </p>
           </div>
         </article>
 
-        <!-- Item 4: Nossos Horizontes / Viagem dos Resorts -->
+        <!-- Item 4: Nossos Resorts (Texto Original Real) -->
         <article class="timeline-item reveal-on-scroll">
           <div class="timeline-marker">
             <div class="marker-circle">IV</div>
           </div>
           <div class="timeline-media">
             <div class="media-frame" data-lightbox="images/NH_04.jpg">
-              <img src="images/NH_04.jpg" alt="Registro do casal" loading="lazy" decoding="async">
+              <img src="images/NH_04.jpg" alt="Nossa Viagem" loading="lazy" decoding="async">
               <span class="zoom-indicator" aria-hidden="true">⤢</span>
             </div>
           </div>
           <div class="timeline-card">
             <time class="timeline-date">
-              <span class="date-highlight">Nossos Horizontes</span>
-              <span class="date-badge">Viagens & Resorts</span>
+              <span class="date-highlight">Resorts</span>
             </time>
-            <h3 class="timeline-card__title">Nossos Refúgios e Nossas Viagens</h3>
+            <h3 class="timeline-card__title">Nossa Viagem</h3>
             <p class="timeline-card__text">
-              Nossas viagens em resorts, o descanso a dois, as conversas sem pressa e a calma de estar perto de quem se ama. Com você, qualquer lugar do mapa se transforma em paraíso.
+              A primeira de muitas das nossas viagens em resorts...
             </p>
           </div>
         </article>
 
-        <!-- Item 5: A Celebração dos Três Anos -->
+        <!-- Item 5: Três Anos Juntos -->
         <article class="timeline-item timeline-item--milestone reveal-on-scroll">
           <div class="timeline-marker">
             <div class="marker-circle marker-circle--crown">👑</div>
           </div>
           <div class="timeline-media">
             <div class="media-frame" data-lightbox="images/GM_01.jpeg">
-              <img src="images/GM_01.jpeg" alt="Registro do casal" loading="lazy" decoding="async">
+              <img src="images/GM_01.jpeg" alt="Três Anos" loading="lazy" decoding="async">
               <span class="zoom-indicator" aria-hidden="true">⤢</span>
             </div>
           </div>
           <div class="timeline-card timeline-card--royal">
             <time datetime="2026-11-25" class="timeline-date">
-              <span class="date-highlight date-highlight--gold">25 de Novembro de 2026</span>
-              <span class="date-badge date-badge--royal">Três Anos Juntos</span>
+              <span class="date-highlight date-highlight--gold">25/11/2026</span>
+              <span class="date-badge date-badge--royal">3 Anos de Namoro</span>
             </time>
-            <h3 class="timeline-card__title">Três Anos: O Início da Nossa Eternidade</h3>
+            <h3 class="timeline-card__title">Três Anos Juntos</h3>
             <p class="timeline-card__text">
-              Hoje celebramos três anos de mãos dadas. Três anos de um amor que amadureceu com leveza, carinho e respeito. Você é a minha princesa, meu maior acerto e a certeza de um futuro lindo juntos.
+              Três anos de parceria, risadas e uma história linda que estamos construindo a cada dia.
             </p>
           </div>
         </article>
       </div>
     </section>
 
-    <!-- Divisor Ornamental Real -->
+    <!-- Divisor Ornamental -->
     <div class="royal-divider" aria-hidden="true">
       <span class="divider-line"></span>
       <span class="divider-ornament">✧</span>
@@ -307,54 +280,45 @@
     </div>
 
     <!-- ============================================================
-         GALLERY SECTION: RETRATOS PUROS E LIMPOS (SEM TEXTOS EM CIMA)
+         GALLERY SECTION: FOTOS LIMPAS (SEM TEXTOS OU LEGENDAS)
          ============================================================ -->
     <section class="royal-section gallery-section" id="galeria">
       <div class="section-header reveal-on-scroll">
-        <p class="royal-eyebrow">Galeria</p>
-        <h2 class="section-title">Nossos Retratos Mais Preciosos</h2>
-        <p class="section-subtitle">
-          Momentos capturados no tempo, onde a pureza do seu olhar e a harmonia do nosso amor dispensam palavras.
-        </p>
+        <p class="royal-eyebrow">Fotos</p>
+        <h2 class="section-title">Galeria</h2>
       </div>
 
       <div class="clean-gallery-grid">
-        <!-- Retrato 1 -->
         <div class="clean-photo-card reveal-on-scroll" data-lightbox="images/GM_01.jpeg">
           <div class="photo-inner">
-            <img src="images/GM_01.jpeg" alt="Fotografia do casal" loading="lazy" decoding="async">
+            <img src="images/GM_01.jpeg" alt="Foto do casal" loading="lazy" decoding="async">
           </div>
         </div>
 
-        <!-- Retrato 2 -->
         <div class="clean-photo-card reveal-on-scroll" data-lightbox="images/FOTO_01.jpeg">
           <div class="photo-inner">
-            <img src="images/FOTO_01.jpeg" alt="Fotografia do casal" loading="lazy" decoding="async">
+            <img src="images/FOTO_01.jpeg" alt="Foto do casal" loading="lazy" decoding="async">
           </div>
         </div>
 
-        <!-- Retrato 3 -->
         <div class="clean-photo-card reveal-on-scroll" data-lightbox="images/FOTO_02.jpeg">
           <div class="photo-inner">
-            <img src="images/FOTO_02.jpeg" alt="Fotografia do casal" loading="lazy" decoding="async">
+            <img src="images/FOTO_02.jpeg" alt="Foto do casal" loading="lazy" decoding="async">
           </div>
         </div>
 
-        <!-- Retrato 4 -->
         <div class="clean-photo-card reveal-on-scroll" data-lightbox="images/FOTO_03.jpeg">
           <div class="photo-inner">
-            <img src="images/FOTO_03.jpeg" alt="Fotografia do casal" loading="lazy" decoding="async">
+            <img src="images/FOTO_03.jpeg" alt="Foto do casal" loading="lazy" decoding="async">
           </div>
         </div>
 
-        <!-- Retrato 5 (Reserva Nobre) -->
         <div class="clean-photo-card clean-photo-card--placeholder reveal-on-scroll" data-lightbox="">
           <div class="photo-inner photo-inner--frame">
             <span class="frame-crest">✦</span>
           </div>
         </div>
 
-        <!-- Retrato 6 (Reserva Nobre) -->
         <div class="clean-photo-card clean-photo-card--placeholder reveal-on-scroll" data-lightbox="">
           <div class="photo-inner photo-inner--frame">
             <span class="frame-crest">👑</span>
@@ -363,7 +327,7 @@
       </div>
     </section>
 
-    <!-- Divisor Ornamental Real -->
+    <!-- Divisor Ornamental -->
     <div class="royal-divider" aria-hidden="true">
       <span class="divider-line"></span>
       <span class="divider-ornament">⚜</span>
@@ -371,150 +335,113 @@
     </div>
 
     <!-- ============================================================
-         MUSIC SECTION: TRILHA SONORA SOLICITADA PELO USUÁRIO
+         MUSIC & VIDEO SECTION: PLAYER MULTIMÍDIA COM AS MÚSICAS ESCOLHIDAS
          ============================================================ -->
     <section class="royal-section soundtrack-section" id="trilha">
       <div class="section-header reveal-on-scroll">
         <p class="royal-eyebrow">Trilha Sonora</p>
-        <h2 class="section-title">A Melodia dos Nossos Dias</h2>
+        <h2 class="section-title">Nossas Músicas</h2>
         <p class="section-subtitle">
-          As canções que tocam o nosso coração e embalam a história dos nossos três anos juntos.
+          Escolha uma música abaixo para reproduzir o clipe e a canção diretamente no site:
         </p>
       </div>
 
-      <div class="soundtrack-card reveal-on-scroll">
-        <div class="soundtrack-media">
-          <div class="vinyl-disk" id="vinylDisk" aria-hidden="true">
-            <div class="vinyl-groove"></div>
-            <div class="vinyl-center">
-              <span>III</span>
+      <div class="video-jukebox reveal-on-scroll">
+        <!-- Player de Vídeo/Áudio Incorporado Ativo -->
+        <div class="jukebox-player-wrap">
+          <iframe id="videoPlayerFrame" 
+                  src="https://www.youtube.com/embed/WPGEYRhQ_Kg?enablejsapi=1&rel=0" 
+                  title="Vídeo Musical" 
+                  frameborder="0" 
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                  allowfullscreen>
+          </iframe>
+        </div>
+
+        <div class="jukebox-now-playing">
+          <span class="jukebox-badge" id="nowPlayingBadge">Reproduzindo</span>
+          <h3 class="jukebox-song-title" id="nowPlayingTitle">L-O-V-E</h3>
+          <p class="jukebox-song-artist" id="nowPlayingArtist">Michael Bublé</p>
+        </div>
+
+        <!-- Lista Interativa de Músicas -->
+        <div class="jukebox-playlist">
+          <button class="music-choice-btn is-active" type="button" 
+                  data-yt-id="WPGEYRhQ_Kg" 
+                  data-title="L-O-V-E" 
+                  data-artist="Michael Bublé">
+            <span class="choice-num">01</span>
+            <div class="choice-meta">
+              <strong>L-O-V-E</strong>
+              <small>Michael Bublé</small>
             </div>
-          </div>
-          <div class="soundtrack-info">
-            <span class="track-tag" id="trackStatusTag">Nossa Seleção Musical</span>
-            <h3 class="track-title" id="trackTitle">L-O-V-E</h3>
-            <p class="track-artist" id="trackArtist">Michael Bublé</p>
-          </div>
-        </div>
-
-        <!-- Barra de Progresso Interativa -->
-        <div class="soundtrack-progress-block">
-          <div class="progress-bar-wrap" id="progressBarWrap" role="slider" aria-label="Progresso da música" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" tabindex="0">
-            <div class="progress-bar-fill" id="progressBarFill" style="width: 0%;"></div>
-          </div>
-          <div class="progress-times">
-            <span id="currentTimeLabel">00:00</span>
-            <span id="durationTimeLabel">--:--</span>
-          </div>
-        </div>
-
-        <!-- Controles de Reprodução -->
-        <div class="soundtrack-controls">
-          <button class="track-btn track-btn--secondary" id="prevTrackBtn" type="button" aria-label="Faixa anterior" title="Faixa anterior">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
-              <polygon points="19 20 9 12 19 4 19 20"></polygon>
-              <line x1="5" y1="19" x2="5" y2="5" stroke="currentColor" stroke-width="2"></line>
-            </svg>
+            <span class="choice-play-icon">▶</span>
           </button>
 
-          <button class="track-btn track-btn--primary" id="playPauseBtn" type="button" aria-label="Tocar música" title="Play/Pause">
-            <svg class="icon-play" width="22" height="22" viewBox="0 0 24 24" fill="currentColor">
-              <polygon points="5 3 19 12 5 21 5 3"></polygon>
-            </svg>
-            <svg class="icon-pause" width="22" height="22" viewBox="0 0 24 24" fill="currentColor" style="display:none;">
-              <rect x="6" y="4" width="4" height="16"></rect>
-              <rect x="14" y="4" width="4" height="16"></rect>
-            </svg>
+          <button class="music-choice-btn" type="button" 
+                  data-yt-id="h9ZGKALMMuc" 
+                  data-title="The Way You Look Tonight" 
+                  data-artist="Frank Sinatra">
+            <span class="choice-num">02</span>
+            <div class="choice-meta">
+              <strong>The Way You Look Tonight</strong>
+              <small>Frank Sinatra</small>
+            </div>
+            <span class="choice-play-icon">▶</span>
           </button>
 
-          <button class="track-btn track-btn--secondary" id="nextTrackBtn" type="button" aria-label="Próxima faixa" title="Próxima faixa">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
-              <polygon points="5 4 15 12 5 20 5 4"></polygon>
-              <line x1="19" y1="5" x2="19" y2="19" stroke="currentColor" stroke-width="2"></line>
-            </svg>
+          <button class="music-choice-btn" type="button" 
+                  data-yt-id="cY9aGSpCYEs" 
+                  data-title="Pra Que Juízo" 
+                  data-artist="Henrique & Juliano">
+            <span class="choice-num">03</span>
+            <div class="choice-meta">
+              <strong>Pra Que Juízo</strong>
+              <small>Henrique & Juliano</small>
+            </div>
+            <span class="choice-play-icon">▶</span>
           </button>
 
-          <!-- Controle de Volume -->
-          <div class="volume-control">
-            <button class="volume-toggle-btn" id="volumeToggleBtn" type="button" aria-label="Silenciar áudio" title="Silenciar">
-              <svg class="vol-icon vol-high" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
-                <path d="M19.07 4.93a10 10 0 0 1 0 14.14M15.54 8.46a5 5 0 0 1 0 7.07"></path>
-              </svg>
-              <svg class="vol-icon vol-mute" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="display:none;">
-                <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
-                <line x1="23" y1="9" x2="17" y2="15"></line>
-                <line x1="17" y1="9" x2="23" y2="15"></line>
-              </svg>
-            </button>
-            <input type="range" class="volume-slider" id="volumeSlider" min="0" max="1" step="0.05" value="0.75" aria-label="Controle de volume">
-          </div>
-        </div>
+          <button class="music-choice-btn" type="button" 
+                  data-yt-id="dWpGsK8Md28" 
+                  data-title="Te Vivo" 
+                  data-artist="Luan Santana">
+            <span class="choice-num">04</span>
+            <div class="choice-meta">
+              <strong>Te Vivo</strong>
+              <small>Luan Santana</small>
+            </div>
+            <span class="choice-play-icon">▶</span>
+          </button>
 
-        <!-- Playlist com as Músicas Solicitadas -->
-        <div class="playlist-container">
-          <p class="playlist-title">Nossas Canções de Amor:</p>
-          <ul class="playlist-list" id="playlistList" role="listbox">
-            <!-- 1. Michael Bublé -->
-            <li class="playlist-item is-active" data-index="0" role="option" aria-selected="true" tabindex="0">
-              <span class="track-number">01</span>
-              <div class="track-meta">
-                <strong>L-O-V-E</strong>
-                <small>Michael Bublé</small>
-              </div>
-              <span class="track-badge">Romântica</span>
-            </li>
-            <!-- 2. Frank Sinatra -->
-            <li class="playlist-item" data-index="1" role="option" aria-selected="false" tabindex="0">
-              <span class="track-number">02</span>
-              <div class="track-meta">
-                <strong>The Way You Look Tonight</strong>
-                <small>Frank Sinatra</small>
-              </div>
-              <span class="track-badge">Clássica</span>
-            </li>
-            <!-- 3. Henrique & Juliano -->
-            <li class="playlist-item" data-index="2" role="option" aria-selected="false" tabindex="0">
-              <span class="track-number">03</span>
-              <div class="track-meta">
-                <strong>Pra Que Juízo</strong>
-                <small>Henrique & Juliano</small>
-              </div>
-              <span class="track-badge">Nosso Amor</span>
-            </li>
-            <!-- 4. Luan Santana -->
-            <li class="playlist-item" data-index="3" role="option" aria-selected="false" tabindex="0">
-              <span class="track-number">04</span>
-              <div class="track-meta">
-                <strong>Te Vivo</strong>
-                <small>Luan Santana</small>
-              </div>
-              <span class="track-badge">Especial</span>
-            </li>
-            <!-- 5. Jorge & Mateus -->
-            <li class="playlist-item" data-index="4" role="option" aria-selected="false" tabindex="0">
-              <span class="track-number">05</span>
-              <div class="track-meta">
-                <strong>Pra Sempre Com Você</strong>
-                <small>Jorge & Mateus</small>
-              </div>
-              <span class="track-badge">Para Sempre</span>
-            </li>
-            <!-- 6. Jorge & Mateus -->
-            <li class="playlist-item" data-index="5" role="option" aria-selected="false" tabindex="0">
-              <span class="track-number">06</span>
-              <div class="track-meta">
-                <strong>Os Anjos Cantam Nosso Amor</strong>
-                <small>Jorge & Mateus</small>
-              </div>
-              <span class="track-badge">Celebração</span>
-            </li>
-          </ul>
+          <button class="music-choice-btn" type="button" 
+                  data-yt-id="g_a_C0WKyj0" 
+                  data-title="Pra Sempre Com Você" 
+                  data-artist="Jorge & Mateus">
+            <span class="choice-num">05</span>
+            <div class="choice-meta">
+              <strong>Pra Sempre Com Você</strong>
+              <small>Jorge & Mateus</small>
+            </div>
+            <span class="choice-play-icon">▶</span>
+          </button>
+
+          <button class="music-choice-btn" type="button" 
+                  data-yt-id="ICS6uKC93w0" 
+                  data-title="Os Anjos Cantam Nosso Amor" 
+                  data-artist="Jorge & Mateus">
+            <span class="choice-num">06</span>
+            <div class="choice-meta">
+              <strong>Os Anjos Cantam Nosso Amor</strong>
+              <small>Jorge & Mateus</small>
+            </div>
+            <span class="choice-play-icon">▶</span>
+          </button>
         </div>
       </div>
     </section>
 
-    <!-- Divisor Ornamental Real -->
+    <!-- Divisor Ornamental -->
     <div class="royal-divider" aria-hidden="true">
       <span class="divider-line"></span>
       <span class="divider-ornament">❦</span>
@@ -522,81 +449,43 @@
     </div>
 
     <!-- ============================================================
-         LOVE LETTER SECTION: CARTA DE AMOR REAL
+         CARTA: ESPAÇO LIMPO PARA O PRÓPRIO LUCAS ESCREVER
          ============================================================ -->
     <section class="royal-section letter-section" id="carta">
       <div class="section-header reveal-on-scroll">
-        <p class="royal-eyebrow">Palavras do Coração</p>
-        <h2 class="section-title">Nossa Carta de Amor</h2>
+        <p class="royal-eyebrow">Carta Pessoal</p>
+        <h2 class="section-title">Sua Carta</h2>
         <p class="section-subtitle">
-          Uma dedicatória escrita com afeto sincero, guardando a verdade do que sinto por você nestes três anos.
+          Escreva diretamente aqui as suas próprias palavras para ela.
         </p>
       </div>
 
       <div class="letter-wrapper reveal-on-scroll">
-        <div class="letter-toolbar">
-          <div class="letter-mode-switch">
-            <button class="mode-btn is-active" id="viewLetterModeBtn" type="button">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path>
-                <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path>
-              </svg>
-              <span>Visualizar Carta Solene</span>
-            </button>
-            <button class="mode-btn" id="editLetterModeBtn" type="button">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <path d="M12 20h9"></path>
-                <path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"></path>
-              </svg>
-              <span>Editar Mensagem</span>
-            </button>
-          </div>
-          <div class="letter-status" id="letterSaveStatus" aria-live="polite">
-            <span>Salva com segurança neste dispositivo</span>
-          </div>
-        </div>
-
-        <!-- Pergaminho Real -->
-        <article class="royal-letter-parchment" id="royalLetterDisplay">
-          <div class="parchment-seal" aria-hidden="true">
-            <span class="seal-icon">✦</span>
-          </div>
-          <header class="parchment-header">
-            <p class="parchment-date">25 de Novembro de 2026 • Bodas de Três Anos</p>
-            <h3 class="parchment-greeting">Meu amor,</h3>
-          </header>
-          <div class="parchment-body" id="parchmentBodyText">
-            <p>
-              Hoje completamos três anos de um amor que se renova a cada amanhecer. Quando fecho os olhos e me lembro daquele 25 de novembro de 2023, percebo com clareza o tamanho da bênção que foi ter você entrando na minha vida.
-            </p>
-            <p>
-              Você é a mulher mais maravilhosa que eu poderia sonhar em ter ao meu lado: carinhosa, inteligente, autêntica e dona do sorriso mais lindo deste mundo. Em cada viagem a resorts, em cada conversa longa ou nos dias mais calmos em que apenas descansamos juntos, você transforma qualquer momento comum em algo precioso.
-            </p>
-            <p>
-              Obrigado por ser a minha parceira de vida, minha confidente e a verdadeira princesa dos meus dias. Três anos são apenas o primeiro capítulo da história linda que ainda continuaremos construindo juntos.
-            </p>
-            <p class="parchment-closing">
-              Com todo o meu amor, admiração e carinho eterno,<br>
-              <strong>Para sempre seu. ❤️</strong>
-            </p>
-          </div>
-        </article>
-
-        <!-- Editor da Carta -->
-        <div class="royal-letter-editor" id="royalLetterEditor" style="display: none;">
-          <label for="loveLetterInputText" class="editor-label">Personalize sua declaração de amor:</label>
-          <textarea id="loveLetterInputText" rows="14" placeholder="Meu amor, hoje completamos três anos juntos e quero te dizer..."></textarea>
+        <div class="royal-letter-editor" style="display: block;">
+          <label for="loveLetterInputText" class="editor-label">Escreva a sua mensagem pessoal:</label>
+          <textarea id="loveLetterInputText" rows="12" placeholder="Meu amor, hoje completamos três anos de namoro e eu queria te dizer..."></textarea>
           <div class="editor-actions">
             <button class="btn-royal" id="saveLetterBtn" type="button">
               <span>Salvar Carta</span>
             </button>
-            <button class="btn-royal-outline" id="restoreLetterDefaultBtn" type="button">Restaurar Texto Original</button>
+            <span class="letter-status" id="letterSaveStatus"></span>
           </div>
         </div>
+
+        <article class="royal-letter-parchment" id="royalLetterDisplay" style="margin-top: 24px;">
+          <header class="parchment-header">
+            <p class="parchment-date">25 de Novembro de 2026 • 3 Anos de Namoro</p>
+          </header>
+          <div class="parchment-body" id="parchmentBodyText">
+            <p style="color: #7A696C; font-style: italic;">
+              Sua carta salva aparecerá aqui quando você clicar em "Salvar Carta" acima.
+            </p>
+          </div>
+        </article>
       </div>
     </section>
 
-    <!-- Divisor Ornamental Real -->
+    <!-- Divisor Ornamental -->
     <div class="royal-divider" aria-hidden="true">
       <span class="divider-line"></span>
       <span class="divider-ornament">✧</span>
@@ -604,14 +493,14 @@
     </div>
 
     <!-- ============================================================
-         COUNTER SECTION: CONTADOR DE TEMPO JUNTOS (3 ANOS)
+         CONTADOR DE TEMPO JUNTOS
          ============================================================ -->
     <section class="royal-section counter-section" id="contador">
       <div class="section-header reveal-on-scroll">
-        <p class="royal-eyebrow">Nosso Tempo de Amor</p>
-        <h2 class="section-title">1.096 Dias de Cumplicidade</h2>
+        <p class="royal-eyebrow">Contador</p>
+        <h2 class="section-title">Tempo Juntos</h2>
         <p class="section-subtitle">
-          Cada segundo contabilizado desde 25 de novembro de 2023, celebrando a bênção de estar com você.
+          Desde 25 de Novembro de 2023.
         </p>
       </div>
 
@@ -620,14 +509,14 @@
           <div class="reliquary-frame">
             <span class="reliquary-number" id="counterYears">3</span>
           </div>
-          <span class="reliquary-label">Anos de Amor</span>
+          <span class="reliquary-label">Anos</span>
         </div>
 
         <div class="reliquary-card">
           <div class="reliquary-frame">
             <span class="reliquary-number" id="counterDays">0</span>
           </div>
-          <span class="reliquary-label">Dias Vividos</span>
+          <span class="reliquary-label">Dias</span>
         </div>
 
         <div class="reliquary-card">
@@ -651,39 +540,9 @@
           <span class="reliquary-label">Segundos</span>
         </div>
       </div>
-
-      <div class="counter-footer reveal-on-scroll">
-        <p class="counter-footer__quote">
-          "Três anos não são apenas a contagem dos dias, mas a certeza de que a cada minuto escolho você novamente."
-        </p>
-      </div>
     </section>
 
-    <!-- Divisor Ornamental Real -->
-    <div class="royal-divider" aria-hidden="true">
-      <span class="divider-line"></span>
-      <span class="divider-ornament">❦</span>
-      <span class="divider-line"></span>
-    </div>
-
-    <!-- ============================================================
-         SKY SECTION: O ÚNICO LUGAR COM FRASES E LEMBRANÇAS POÉTICAS
-         ============================================================ -->
-    <section class="royal-section sky-section" id="ceu">
-      <div class="section-header section-header--light reveal-on-scroll">
-        <p class="royal-eyebrow royal-eyebrow--gold">Céu das Memórias</p>
-        <h2 class="section-title section-title--light">Constelações do Nosso Amor</h2>
-        <p class="section-subtitle section-subtitle--light">
-          Toque em cada uma das estrelas para revelar as lembranças, confissões e sentimentos guardados no firmamento.
-        </p>
-      </div>
-
-      <div class="celestial-vault reveal-on-scroll" id="celestialVault" aria-label="Mapa celestial de memórias">
-        <!-- Gerado via JavaScript -->
-      </div>
-    </section>
-
-    <!-- Divisor Ornamental Real -->
+    <!-- Divisor Ornamental -->
     <div class="royal-divider" aria-hidden="true">
       <span class="divider-line"></span>
       <span class="divider-ornament">⚜</span>
@@ -691,16 +550,15 @@
     </div>
 
     <!-- ============================================================
-         FINAL SECTION: O NOSSO SEMPRE
+         FINAL SECTION
          ============================================================ -->
     <section class="royal-section final-section" id="futuro">
       <div class="final-banner reveal-on-scroll">
-        <p class="royal-eyebrow royal-eyebrow--gold">Para a Eternidade</p>
         <h2 class="final-banner__title">
-          "Se eu tivesse mil vidas, em todas elas escolheria você."
+          Feliz 3 Anos de Namoro ❤️
         </h2>
         <p class="final-banner__sub">
-          Feliz Aniversário de Três Anos, meu amor. ❤️
+          25 de Novembro de 2023 — 25 de Novembro de 2026
         </p>
         <div class="final-banner__actions">
           <button class="btn-royal btn-royal--gold" id="celebrateBurstBtn" type="button">
@@ -710,12 +568,11 @@
         </div>
       </div>
 
-      <!-- Estrutura do Vídeo Surpresa -->
+      <!-- Espaço para Vídeo Surpresa Pessoal -->
       <div class="royal-video-container reveal-on-scroll">
         <div class="video-frame">
           <div class="video-header">
-            <span class="video-tag">Registro Especial</span>
-            <h3 class="video-title">Vídeo Surpresa do Casal</h3>
+            <h3 class="video-title">Vídeo Surpresa</h3>
           </div>
           <div class="video-player-wrap">
             <video id="surpriseVideoElement" controls preload="metadata" poster="images/FOTO_01.jpeg">
@@ -724,7 +581,7 @@
             </video>
             <div class="video-placeholder-notice" id="videoNotice">
               <p>
-                <em>🎥 Quando desejar adicionar seu vídeo especial, basta colocar o arquivo <code>surpresa.mp4</code> na pasta <code>video/</code>.</em>
+                <em>🎥 Quando desejar colocar o seu vídeo pessoal surpresa, basta colocar o arquivo <code>surpresa.mp4</code> na pasta <code>video/</code>.</em>
               </p>
             </div>
           </div>
@@ -738,24 +595,19 @@
     <div class="footer-container">
       <div class="footer-crest" aria-hidden="true">✦ ❦ ✦</div>
       <p class="footer-text">
-        Criado com amor para celebrar nossos <strong>Três Anos de Namoro</strong>.
+        Três Anos de Namoro
       </p>
       <p class="footer-subtext">
-        25 de Novembro de 2023 — 25 de Novembro de 2026 • Para sempre nós dois.
+        25/11/2023 — 25/11/2026
       </p>
     </div>
   </footer>
 
-  <!-- Selo Secreto -->
-  <button class="royal-secret-seal" id="secretSealBtn" type="button" aria-label="Abrir mensagem confidencial" title="Uma mensagem confidencial">
-    <span class="seal-inner">❦</span>
-  </button>
-
-  <!-- Lightbox Modal Universal (Com foco nas memórias do céu) -->
+  <!-- Lightbox Modal Universal (Apenas foto ampliada, sem textos inventados) -->
   <div class="royal-lightbox" id="royalLightbox" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="lightboxTitle">
     <div class="royal-lightbox__backdrop" id="lightboxBackdrop"></div>
     <div class="royal-lightbox__dialog">
-      <button class="lightbox-close-btn" id="lightboxCloseBtn" type="button" aria-label="Fechar visualização">
+      <button class="lightbox-close-btn" id="lightboxCloseBtn" type="button" aria-label="Fechar">
         <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
           <line x1="18" y1="6" x2="6" y2="18"></line>
           <line x1="6" y1="6" x2="18" y2="18"></line>
@@ -764,16 +616,12 @@
 
       <div class="royal-lightbox__content">
         <div class="lightbox-image-wrap" id="lightboxImageWrap">
-          <img src="" alt="" id="lightboxImage" class="lightbox-img" style="display: none;">
+          <img src="" alt="Fotografia" id="lightboxImage" class="lightbox-img" style="display: none;">
           <div class="lightbox-placeholder-card" id="lightboxPlaceholder" style="display: none;">
             <div class="placeholder-icon">✦</div>
-            <h4 id="lightboxPlaceholderTitle">Lembrança Especial</h4>
-            <p id="lightboxPlaceholderText"></p>
+            <h4>Espaço Reservado</h4>
+            <p>Adicione uma nova foto na pasta images/.</p>
           </div>
-        </div>
-        <div class="lightbox-details" id="lightboxDetails">
-          <h3 id="lightboxTitle" class="lightbox-title">Memória</h3>
-          <p id="lightboxDescription" class="lightbox-desc"></p>
         </div>
       </div>
     </div>

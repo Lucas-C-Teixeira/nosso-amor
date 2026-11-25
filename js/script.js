@@ -1,364 +1,57 @@
 /**
  * ============================================================================
- * NOSSOS TRÊS ANOS — SCRIPT PRINCIPAL EDITORIAL & REAL
- * Arquitetura Modular, Clean Code, Separação de Preocupações & Acessibilidade
+ * NOSSO AMOR — 3 ANOS JUNTOS
+ * Script Limpo, Funcional e Desacoplado
  * ============================================================================
  */
 
 (function () {
   'use strict';
 
-  /* --------------------------------------------------------------------------
-     1. CONFIGURAÇÃO GERAL DO SISTEMA (Playlist & Memórias Celestes)
-     -------------------------------------------------------------------------- */
   const APP_CONFIG = {
-    // Data de início do relacionamento: 25 de Novembro de 2023
-    startDate: '2023-11-25T00:00:00',
-
-    // Playlist com as músicas selecionadas pelo usuário
-    playlist: [
-      {
-        title: 'L-O-V-E',
-        artist: 'Michael Bublé',
-        src: 'music/love-michael-buble.mp3',
-        tag: 'Romântica'
-      },
-      {
-        title: 'The Way You Look Tonight',
-        artist: 'Frank Sinatra',
-        src: 'music/the-way-you-look-tonight.mp3',
-        tag: 'Clássica'
-      },
-      {
-        title: 'Pra Que Juízo',
-        artist: 'Henrique & Juliano',
-        src: 'music/pra-que-juizo.mp3',
-        tag: 'Nosso Amor'
-      },
-      {
-        title: 'Te Vivo',
-        artist: 'Luan Santana',
-        src: 'music/te-vivo.mp3',
-        tag: 'Especial'
-      },
-      {
-        title: 'Pra Sempre Com Você',
-        artist: 'Jorge & Mateus',
-        src: 'music/pra-sempre-com-voce.mp3',
-        tag: 'Para Sempre'
-      },
-      {
-        title: 'Os Anjos Cantam Nosso Amor',
-        artist: 'Jorge & Mateus',
-        src: 'music/os-anjos-cantam.mp3',
-        tag: 'Celebração'
-      }
-    ],
-
-    // Céu das Memórias (Único lugar com textos poéticos e afetivos)
-    skyMemories: [
-      {
-        x: 16,
-        y: 28,
-        title: 'O Teu Sorriso',
-        text: 'O seu sorriso tem o dom raro de acalmar qualquer dia difícil e me lembrar da sorte imensa que é ter você na minha vida.',
-        glyph: '✦'
-      },
-      {
-        x: 36,
-        y: 64,
-        title: 'Nossos Abraços',
-        text: 'A paz de estar com você em silêncio e sentir que no seu abraço eu encontrei o meu lar mais seguro.',
-        glyph: '✧'
-      },
-      {
-        x: 55,
-        y: 30,
-        title: 'Nossas Viagens',
-        text: 'Cada viagem que fizemos juntos, cada café da manhã sem pressa e os risos soltos se tornaram os melhores dias da minha história.',
-        glyph: '✦'
-      },
-      {
-        x: 74,
-        y: 68,
-        title: 'A Sua Doçura',
-        text: 'A sua bondade, sua inteligência e o jeito carinhoso como cuida de nós me fazem admirar a mulher linda que você é a cada amanhecer.',
-        glyph: '✧'
-      },
-      {
-        x: 88,
-        y: 22,
-        title: 'Três Anos e Todo o Sempre',
-        text: 'Três anos se passaram rápido como um suspiro bom. Se eu pudesse viver tudo de novo, escolheria você em cada detalhe, infinitas vezes.',
-        glyph: '✦'
-      }
-    ],
-
-    // Mensagem confidencial do selo secreto
-    secretMessage: {
-      title: 'Mensagem Confidencial',
-      text: 'Se você encontrou este selo, queria te lembrar mais uma vez: você é o meu maior acerto, minha paz diária e o amor da minha vida. Três anos ao seu lado foram o presente mais lindo que eu poderia ter recebido.'
-    }
+    startDate: '2023-11-25T00:00:00'
   };
 
   /* --------------------------------------------------------------------------
-     2. GERENCIADOR DO REPRODUTOR DE ÁUDIO (SoundtrackManager)
+     1. PLAYER MULTIMÍDIA DE MÚSICAS & CLIPES (JUKEBOX)
      -------------------------------------------------------------------------- */
-  class SoundtrackManager {
-    constructor(config) {
-      this.playlist = config.playlist;
-      this.currentIndex = 0;
-      this.isPlaying = false;
-      this.isMuted = false;
-      this.previousVolume = 0.75;
+  class VideoJukebox {
+    constructor() {
+      this.iframe = document.querySelector('#videoPlayerFrame');
+      this.titleEl = document.querySelector('#nowPlayingTitle');
+      this.artistEl = document.querySelector('#nowPlayingArtist');
+      this.buttons = document.querySelectorAll('.music-choice-btn');
 
-      // Elementos do DOM
-      this.audio = document.querySelector('#mainAudioPlayer');
-      this.playPauseBtn = document.querySelector('#playPauseBtn');
-      this.prevBtn = document.querySelector('#prevTrackBtn');
-      this.nextBtn = document.querySelector('#nextTrackBtn');
-      this.topbarAudioBtn = document.querySelector('#topbarAudioBtn');
-      this.topbarTrackName = document.querySelector('#topbarTrackName');
-      this.vinylDisk = document.querySelector('#vinylDisk');
-      this.trackTitle = document.querySelector('#trackTitle');
-      this.trackArtist = document.querySelector('#trackArtist');
-      this.trackStatusTag = document.querySelector('#trackStatusTag');
-      this.progressBarFill = document.querySelector('#progressBarFill');
-      this.progressBarWrap = document.querySelector('#progressBarWrap');
-      this.currentTimeLabel = document.querySelector('#currentTimeLabel');
-      this.durationTimeLabel = document.querySelector('#durationTimeLabel');
-      this.volumeSlider = document.querySelector('#volumeSlider');
-      this.volumeToggleBtn = document.querySelector('#volumeToggleBtn');
-      this.playlistList = document.querySelector('#playlistList');
-
-      if (!this.audio) return;
+      if (!this.iframe || !this.buttons.length) return;
       this.init();
     }
 
     init() {
-      this.audio.volume = parseFloat(this.volumeSlider ? this.volumeSlider.value : 0.75);
-      this.loadTrack(this.currentIndex, false);
+      this.buttons.forEach((btn) => {
+        btn.addEventListener('click', () => {
+          const ytId = btn.getAttribute('data-yt-id');
+          const title = btn.getAttribute('data-title');
+          const artist = btn.getAttribute('data-artist');
 
-      if (this.playPauseBtn) {
-        this.playPauseBtn.addEventListener('click', () => this.togglePlayPause());
-      }
-
-      if (this.topbarAudioBtn) {
-        this.topbarAudioBtn.addEventListener('click', () => this.togglePlayPause());
-      }
-
-      if (this.prevBtn) {
-        this.prevBtn.addEventListener('click', () => this.prevTrack());
-      }
-
-      if (this.nextBtn) {
-        this.nextBtn.addEventListener('click', () => this.nextTrack());
-      }
-
-      this.audio.addEventListener('timeupdate', () => this.onTimeUpdate());
-      this.audio.addEventListener('loadedmetadata', () => this.onLoadedMetadata());
-      this.audio.addEventListener('ended', () => this.nextTrack());
-      this.audio.addEventListener('error', () => this.onAudioError());
-
-      if (this.progressBarWrap) {
-        this.progressBarWrap.addEventListener('click', (e) => this.seek(e));
-      }
-
-      if (this.volumeSlider) {
-        this.volumeSlider.addEventListener('input', (e) => {
-          this.setVolume(parseFloat(e.target.value));
+          this.play(ytId, title, artist, btn);
         });
-      }
-
-      if (this.volumeToggleBtn) {
-        this.volumeToggleBtn.addEventListener('click', () => this.toggleMute());
-      }
-
-      if (this.playlistList) {
-        const items = this.playlistList.querySelectorAll('.playlist-item');
-        items.forEach((item) => {
-          item.addEventListener('click', () => {
-            const index = parseInt(item.dataset.index, 10);
-            if (!isNaN(index) && index !== this.currentIndex) {
-              this.loadTrack(index, true);
-            } else {
-              this.togglePlayPause();
-            }
-          });
-        });
-      }
-    }
-
-    loadTrack(index, autoPlay = false) {
-      if (index < 0 || index >= this.playlist.length) return;
-      this.currentIndex = index;
-      const track = this.playlist[index];
-
-      if (this.trackTitle) this.trackTitle.textContent = track.title;
-      if (this.trackArtist) this.trackArtist.textContent = track.artist;
-      if (this.trackStatusTag) this.trackStatusTag.textContent = track.tag || 'Nossa Seleção Musical';
-      if (this.topbarTrackName) this.topbarTrackName.textContent = track.title;
-
-      this.audio.src = track.src;
-      this.updatePlaylistUI();
-
-      if (autoPlay) {
-        this.play();
-      } else {
-        this.updatePlayPauseUI(false);
-      }
-    }
-
-    togglePlayPause() {
-      if (this.isPlaying) {
-        this.pause();
-      } else {
-        this.play();
-      }
-    }
-
-    play() {
-      const playPromise = this.audio.play();
-      if (playPromise !== undefined) {
-        playPromise
-          .then(() => {
-            this.isPlaying = true;
-            this.updatePlayPauseUI(true);
-          })
-          .catch(() => {
-            this.isPlaying = false;
-            this.updatePlayPauseUI(false);
-            if (this.trackStatusTag) {
-              this.trackStatusTag.textContent = 'Adicione o MP3 em music/ para ouvir';
-            }
-          });
-      }
-    }
-
-    pause() {
-      this.audio.pause();
-      this.isPlaying = false;
-      this.updatePlayPauseUI(false);
-    }
-
-    prevTrack() {
-      const newIndex = (this.currentIndex - 1 + this.playlist.length) % this.playlist.length;
-      this.loadTrack(newIndex, true);
-    }
-
-    nextTrack() {
-      const newIndex = (this.currentIndex + 1) % this.playlist.length;
-      this.loadTrack(newIndex, true);
-    }
-
-    updatePlayPauseUI(playing) {
-      if (this.playPauseBtn) {
-        const iconPlay = this.playPauseBtn.querySelector('.icon-play');
-        const iconPause = this.playPauseBtn.querySelector('.icon-pause');
-        if (iconPlay && iconPause) {
-          iconPlay.style.display = playing ? 'none' : 'block';
-          iconPause.style.display = playing ? 'block' : 'none';
-        }
-      }
-
-      if (this.topbarAudioBtn) {
-        this.topbarAudioBtn.classList.toggle('is-playing', playing);
-        const iconPlay = this.topbarAudioBtn.querySelector('.icon-play');
-        const iconPause = this.topbarAudioBtn.querySelector('.icon-pause');
-        if (iconPlay && iconPause) {
-          iconPlay.style.display = playing ? 'none' : 'block';
-          iconPause.style.display = playing ? 'block' : 'none';
-        }
-      }
-
-      if (this.vinylDisk) {
-        this.vinylDisk.classList.toggle('is-spinning', playing);
-      }
-    }
-
-    updatePlaylistUI() {
-      if (!this.playlistList) return;
-      const items = this.playlistList.querySelectorAll('.playlist-item');
-      items.forEach((item, idx) => {
-        const isActive = idx === this.currentIndex;
-        item.classList.toggle('is-active', isActive);
-        item.setAttribute('aria-selected', isActive ? 'true' : 'false');
       });
     }
 
-    onTimeUpdate() {
-      if (!this.audio.duration || isNaN(this.audio.duration)) return;
-      const current = this.audio.currentTime;
-      const duration = this.audio.duration;
-      const percent = (current / duration) * 100;
+    play(ytId, title, artist, activeBtn) {
+      if (!ytId) return;
 
-      if (this.progressBarFill) {
-        this.progressBarFill.style.width = `${percent}%`;
-      }
-      if (this.progressBarWrap) {
-        this.progressBarWrap.setAttribute('aria-valuenow', Math.round(percent));
-      }
-      if (this.currentTimeLabel) {
-        this.currentTimeLabel.textContent = this.formatTime(current);
-      }
-    }
+      this.iframe.src = `https://www.youtube.com/embed/${ytId}?autoplay=1&enablejsapi=1&rel=0`;
+      if (this.titleEl) this.titleEl.textContent = title;
+      if (this.artistEl) this.artistEl.textContent = artist;
 
-    onLoadedMetadata() {
-      if (this.durationTimeLabel && !isNaN(this.audio.duration)) {
-        this.durationTimeLabel.textContent = this.formatTime(this.audio.duration);
-      }
-    }
-
-    onAudioError() {
-      if (this.trackStatusTag) {
-        this.trackStatusTag.textContent = 'Arquivo de música aguardando cópia em music/';
-      }
-      this.updatePlayPauseUI(false);
-    }
-
-    seek(event) {
-      if (!this.audio.duration || isNaN(this.audio.duration)) return;
-      const rect = this.progressBarWrap.getBoundingClientRect();
-      const clickX = event.clientX - rect.left;
-      const width = rect.width;
-      const fraction = Math.max(0, Math.min(1, clickX / width));
-      this.audio.currentTime = fraction * this.audio.duration;
-    }
-
-    setVolume(val) {
-      this.audio.volume = Math.max(0, Math.min(1, val));
-      if (this.volumeSlider) this.volumeSlider.value = this.audio.volume;
-      this.updateVolumeIcons(this.audio.volume === 0);
-    }
-
-    toggleMute() {
-      if (this.audio.volume > 0) {
-        this.previousVolume = this.audio.volume;
-        this.setVolume(0);
-      } else {
-        this.setVolume(this.previousVolume || 0.75);
-      }
-    }
-
-    updateVolumeIcons(muted) {
-      if (!this.volumeToggleBtn) return;
-      const volHigh = this.volumeToggleBtn.querySelector('.vol-high');
-      const volMute = this.volumeToggleBtn.querySelector('.vol-mute');
-      if (volHigh && volMute) {
-        volHigh.style.display = muted ? 'none' : 'block';
-        volMute.style.display = muted ? 'block' : 'none';
-      }
-    }
-
-    formatTime(seconds) {
-      const mins = Math.floor(seconds / 60);
-      const secs = Math.floor(seconds % 60);
-      return `${String(mins).padStart(2, '0')}:${String(secs).padStart(2, '0')}`;
+      this.buttons.forEach((b) => b.classList.remove('is-active'));
+      if (activeBtn) activeBtn.classList.add('is-active');
     }
   }
 
   /* --------------------------------------------------------------------------
-     3. CONTADOR DE TEMPO JUNTOS (3 Anos de Namoro)
+     2. CONTADOR DE TEMPO JUNTOS
      -------------------------------------------------------------------------- */
   class RelationshipCounter {
     constructor(startDateString) {
@@ -403,7 +96,7 @@
   }
 
   /* --------------------------------------------------------------------------
-     4. GERENCIADOR DO LIGHTBOX (Sem poluição de texto nas fotos comuns)
+     3. GERENCIADOR DO LIGHTBOX (Apenas Imagens Limpas)
      -------------------------------------------------------------------------- */
   class LightboxManager {
     constructor() {
@@ -412,12 +105,6 @@
       this.closeBtn = document.querySelector('#lightboxCloseBtn');
       this.imageEl = document.querySelector('#lightboxImage');
       this.placeholderEl = document.querySelector('#lightboxPlaceholder');
-      this.placeholderTitle = document.querySelector('#lightboxPlaceholderTitle');
-      this.placeholderText = document.querySelector('#lightboxPlaceholderText');
-      this.detailsEl = document.querySelector('#lightboxDetails');
-      this.titleEl = document.querySelector('#lightboxTitle');
-      this.descEl = document.querySelector('#lightboxDescription');
-      this.lastFocusedElement = null;
 
       if (!this.lightbox) return;
       this.init();
@@ -437,48 +124,22 @@
         }
       });
 
-      // Fotografias normais (Galeria e Timeline): limpas, sem texto
       document.querySelectorAll('[data-lightbox]').forEach((trigger) => {
         trigger.addEventListener('click', () => {
           const imageSrc = trigger.getAttribute('data-lightbox');
-          this.open({
-            src: imageSrc,
-            title: '',
-            description: '',
-            isMemory: false,
-            trigger: trigger
-          });
+          this.open(imageSrc);
         });
       });
     }
 
-    open({ src, title = '', description = '', isMemory = false, trigger }) {
-      this.lastFocusedElement = trigger || document.activeElement;
-
-      if (isMemory && title) {
-        // Céu das Memórias ou Selo Secreto: exibe texto poético
-        if (this.detailsEl) this.detailsEl.style.display = 'block';
-        if (this.titleEl) this.titleEl.textContent = title;
-        if (this.descEl) this.descEl.textContent = description;
-      } else {
-        // Fotografias normais: limpas e sem texto
-        if (this.detailsEl) this.detailsEl.style.display = 'none';
-      }
-
+    open(src) {
       if (src && src.trim() !== '') {
         this.imageEl.src = src;
-        this.imageEl.alt = 'Fotografia do casal';
         this.imageEl.style.display = 'block';
         this.placeholderEl.style.display = 'none';
       } else {
         this.imageEl.style.display = 'none';
         this.placeholderEl.style.display = 'block';
-        if (this.placeholderTitle) {
-          this.placeholderTitle.textContent = title || 'Lembrança Especial';
-        }
-        if (this.placeholderText) {
-          this.placeholderText.textContent = description || 'Espaço reservado para mais uma fotografia dos nossos três anos.';
-        }
       }
 
       this.lightbox.classList.add('is-open');
@@ -494,93 +155,45 @@
       this.lightbox.classList.remove('is-open');
       this.lightbox.setAttribute('aria-hidden', 'true');
       document.body.classList.remove('no-scroll');
-
-      if (this.lastFocusedElement && typeof this.lastFocusedElement.focus === 'function') {
-        this.lastFocusedElement.focus();
-      }
     }
   }
 
   /* --------------------------------------------------------------------------
-     5. CARTA DE AMOR REAL
+     4. CARTA PESSOAL (Salva o que o próprio usuário escrever)
      -------------------------------------------------------------------------- */
   class LoveLetterManager {
     constructor() {
-      this.storageKey = 'royal-love-letter-v3';
-      this.viewBtn = document.querySelector('#viewLetterModeBtn');
-      this.editBtn = document.querySelector('#editLetterModeBtn');
-      this.displayView = document.querySelector('#royalLetterDisplay');
-      this.editorView = document.querySelector('#royalLetterEditor');
+      this.storageKey = 'minha-carta-namoro';
       this.textarea = document.querySelector('#loveLetterInputText');
       this.saveBtn = document.querySelector('#saveLetterBtn');
-      this.restoreBtn = document.querySelector('#restoreLetterDefaultBtn');
       this.bodyText = document.querySelector('#parchmentBodyText');
       this.statusText = document.querySelector('#letterSaveStatus');
 
-      this.defaultLetterText = 
-        `Hoje completamos três anos de um amor que se renova a cada amanhecer. Quando fecho os olhos e me lembro daquele 25 de novembro de 2023, percebo com clareza o tamanho da bênção que foi ter você entrando na minha vida.\n\n` +
-        `Você é a mulher mais maravilhosa que eu poderia sonhar em ter ao meu lado: carinhosa, inteligente, autêntica e dona do sorriso mais lindo deste mundo. Em cada viagem a resorts, em cada conversa longa ou nos dias mais calmos em que apenas descansamos juntos, você transforma qualquer momento comum em algo precioso.\n\n` +
-        `Obrigado por ser a minha parceira de vida, minha confidente e a verdadeira princesa dos meus dias. Três anos são apenas o primeiro capítulo da história linda que ainda continuaremos construindo juntos.`;
-
-      if (!this.displayView || !this.editorView) return;
+      if (!this.textarea || !this.saveBtn) return;
       this.init();
     }
 
     init() {
       const saved = localStorage.getItem(this.storageKey);
       if (saved && saved.trim() !== '') {
+        this.textarea.value = saved;
         this.renderText(saved);
-        if (this.textarea) this.textarea.value = saved;
-      } else {
-        if (this.textarea) this.textarea.value = this.defaultLetterText;
       }
 
-      if (this.viewBtn && this.editBtn) {
-        this.viewBtn.addEventListener('click', () => this.switchMode('view'));
-        this.editBtn.addEventListener('click', () => this.switchMode('edit'));
-      }
-
-      if (this.saveBtn) {
-        this.saveBtn.addEventListener('click', () => this.saveLetter());
-      }
-
-      if (this.restoreBtn) {
-        this.restoreBtn.addEventListener('click', () => this.restoreDefault());
-      }
+      this.saveBtn.addEventListener('click', () => this.save());
     }
 
-    switchMode(mode) {
-      if (mode === 'view') {
-        this.displayView.style.display = 'block';
-        this.editorView.style.display = 'none';
-        this.viewBtn.classList.add('is-active');
-        this.editBtn.classList.remove('is-active');
-      } else {
-        this.displayView.style.display = 'none';
-        this.editorView.style.display = 'block';
-        this.viewBtn.classList.remove('is-active');
-        this.editBtn.classList.add('is-active');
-        if (this.textarea) this.textarea.focus();
-      }
-    }
-
-    saveLetter() {
-      const text = this.textarea ? this.textarea.value.trim() : '';
+    save() {
+      const text = this.textarea.value.trim();
       if (text) {
         localStorage.setItem(this.storageKey, text);
         this.renderText(text);
-        this.showStatus('Carta salva com sucesso!');
-        this.switchMode('view');
-      }
-    }
-
-    restoreDefault() {
-      if (confirm('Deseja restaurar a carta original dos três anos?')) {
-        localStorage.removeItem(this.storageKey);
-        if (this.textarea) this.textarea.value = this.defaultLetterText;
-        this.renderText(this.defaultLetterText);
-        this.showStatus('Carta original restaurada.');
-        this.switchMode('view');
+        if (this.statusText) {
+          this.statusText.textContent = 'Carta salva com sucesso!';
+          setTimeout(() => {
+            this.statusText.textContent = '';
+          }, 3000);
+        }
       }
     }
 
@@ -594,68 +207,11 @@
         p.textContent = pText.trim();
         this.bodyText.appendChild(p);
       });
-
-      const closing = document.createElement('p');
-      closing.className = 'parchment-closing';
-      closing.innerHTML = 'Com todo o meu amor, admiração e carinho eterno,<br><strong>Para sempre seu. ❤️</strong>';
-      this.bodyText.appendChild(closing);
-    }
-
-    showStatus(msg) {
-      if (!this.statusText) return;
-      this.statusText.textContent = msg;
-      setTimeout(() => {
-        this.statusText.textContent = 'Salva com segurança neste dispositivo';
-      }, 3000);
     }
   }
 
   /* --------------------------------------------------------------------------
-     6. CÉU DAS MEMÓRIAS (Constelações Poéticas)
-     -------------------------------------------------------------------------- */
-  class CelestialSky {
-    constructor(containerId, memories, lightbox) {
-      this.container = document.querySelector(containerId);
-      this.memories = memories;
-      this.lightbox = lightbox;
-
-      if (!this.container) return;
-      this.render();
-    }
-
-    render() {
-      this.container.innerHTML = '';
-      this.memories.forEach((memory, idx) => {
-        const star = document.createElement('button');
-        star.className = 'celestial-star';
-        star.style.left = `${memory.x}%`;
-        star.style.top = `${memory.y}%`;
-        star.setAttribute('type', 'button');
-        star.setAttribute('aria-label', `Abrir ${memory.title}`);
-
-        const glyph = document.createElement('span');
-        glyph.className = 'star-glyph';
-        glyph.textContent = memory.glyph || '✦';
-        glyph.style.animationDelay = `${idx * 0.4}s`;
-        star.appendChild(glyph);
-
-        star.addEventListener('click', () => {
-          this.lightbox.open({
-            src: '',
-            title: memory.title,
-            description: memory.text,
-            isMemory: true,
-            trigger: star
-          });
-        });
-
-        this.container.appendChild(star);
-      });
-    }
-  }
-
-  /* --------------------------------------------------------------------------
-     7. SISTEMA DE NAVEGAÇÃO & HEADER ELEGANTE
+     5. NAVEGAÇÃO & CABEÇALHO
      -------------------------------------------------------------------------- */
   class NavigationManager {
     constructor() {
@@ -669,7 +225,6 @@
     }
 
     init() {
-      // Efeito de rolagem no cabeçalho
       window.addEventListener('scroll', () => {
         if (window.scrollY > 30) {
           this.header.classList.add('is-scrolled');
@@ -698,7 +253,7 @@
   }
 
   /* --------------------------------------------------------------------------
-     8. CANVAS DE PARTÍCULAS SUTIS
+     6. CANVAS DE PARTÍCULAS
      -------------------------------------------------------------------------- */
   class AmbientCanvas {
     constructor(canvasId) {
@@ -736,7 +291,7 @@
     resize() {
       this.canvas.width = window.innerWidth;
       this.canvas.height = window.innerHeight;
-      const count = Math.min(50, Math.floor(window.innerWidth / 24));
+      const count = Math.min(45, Math.floor(window.innerWidth / 26));
 
       this.particles = Array.from({ length: count }, () => ({
         x: Math.random() * this.canvas.width,
@@ -774,7 +329,7 @@
   }
 
   /* --------------------------------------------------------------------------
-     9. CELEBRAÇÃO DE PÉTALAS
+     7. CELEBRAÇÃO DE PÉTALAS
      -------------------------------------------------------------------------- */
   class PetalBurst {
     static burst(amount = 25) {
@@ -800,7 +355,7 @@
   }
 
   /* --------------------------------------------------------------------------
-     10. INICIALIZAÇÃO
+     8. INICIALIZAÇÃO
      -------------------------------------------------------------------------- */
   document.addEventListener('DOMContentLoaded', () => {
     const royalOpening = document.querySelector('#royalOpening');
@@ -816,26 +371,12 @@
       });
     }
 
-    const lightbox = new LightboxManager();
-    new SoundtrackManager(APP_CONFIG);
+    new LightboxManager();
+    new VideoJukebox();
     new RelationshipCounter(APP_CONFIG.startDate);
     new LoveLetterManager();
-    new CelestialSky('#celestialVault', APP_CONFIG.skyMemories, lightbox);
     new NavigationManager();
     new AmbientCanvas('#ambientCanvas');
-
-    const secretSealBtn = document.querySelector('#secretSealBtn');
-    if (secretSealBtn) {
-      secretSealBtn.addEventListener('click', () => {
-        lightbox.open({
-          src: '',
-          title: APP_CONFIG.secretMessage.title,
-          description: APP_CONFIG.secretMessage.text,
-          isMemory: true,
-          trigger: secretSealBtn
-        });
-      });
-    }
 
     const celebrateBurstBtn = document.querySelector('#celebrateBurstBtn');
     if (celebrateBurstBtn) {
