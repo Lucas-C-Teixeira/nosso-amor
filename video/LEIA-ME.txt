@@ -1,6 +1,18 @@
-Coloque aqui o video final surpresa.
+================================================================================
+GUIA DO VÍDEO SURPRESA — NOSSOS TRÊS ANOS
+================================================================================
 
-Nome ja configurado:
-- surpresa.mp4
+O site possui uma seção dedicada a um Vídeo Surpresa comemorativo de 3 Anos.
 
-Se usar outro nome, altere o caminho na tag <video> em index.html.
+COMO COLOCAR SEU VÍDEO:
+--------------------------------------------------------------------------------
+1. Coloque o seu arquivo de vídeo nesta pasta (video/) com o nome:
+   surpresa.mp4
+
+2. O player de vídeo em index.html já está configurado para ler video/surpresa.mp4.
+3. Assim que o arquivo estiver na pasta, o vídeo poderá ser reproduzido com controles
+   de play, pausa, volume e tela cheia diretamente no site.
+
+DICA:
+- Formato recomendado: MP4 (codec H.264), compatível com todos os navegadores,
+  computadores, iPhones e Androids.

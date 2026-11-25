@@ -1,9 +1,35 @@
-Coloque aqui as fotos do casal.
+================================================================================
+GUIA DE FOTOGRAFIAS — NOSSOS TRÊS ANOS
+================================================================================
 
-Sugestoes de nomes para facilitar:
-- foto-01.jpg, foto-02.jpg, foto-03.jpg para a timeline
-- galeria-01.jpg, galeria-02.jpg para a galeria
-- memoria-01.jpg, memoria-02.jpg para os cartoes de memoria
-- ceu-01.jpg, ceu-02.jpg para o ceu das memorias
+Este guia explica como adicionar novas fotos e organizar as existentes no site.
 
-Depois, abra index.html e js/script.js e substitua os placeholders FOTO_01, FOTO_02, etc.
+FOTOGRAFIAS ATUAIS JÁ INTEGRADAS AO SITE:
+--------------------------------------------------------------------------------
+1. images/FOTO_01.jpeg -> Retrato "Fotogênicos" (Vitrine Inicial)
+2. images/FOTO_02.jpeg -> Retrato "Seu Sorriso" (Vitrine Inicial)
+3. images/FOTO_03.jpeg -> Retrato "Dorme Chique" (Vitrine Inicial)
+4. images/NH_01.jpg    -> Marco I da Linha do Tempo (25/11/2023 - O Início)
+5. images/NH_02.jpg    -> Marco II da Linha do Tempo (Primeira Aventura)
+6. images/NH_03.jpg    -> Marco III da Linha do Tempo (Quando Eu Soube)
+7. images/NH_04.jpg    -> Marco IV da Linha do Tempo (Nossa Viagem / Resorts)
+8. images/GM_01.jpeg   -> Marco V dos Três Anos e Imagem 1 da Galeria
+
+COMO ADICIONAR NOVAS FOTOS NA GALERIA:
+--------------------------------------------------------------------------------
+1. Copie suas novas fotos para esta pasta (images/).
+2. Recomendamos usar nomes simples como:
+   - galeria-05.jpg
+   - galeria-06.jpg
+   - comemoracao-3-anos.jpg
+
+3. Abra o arquivo index.html no bloco da Galeria (<section id="galeria">):
+   - Localize o <figure> correspondente ao espaço reservado.
+   - Adicione o atributo data-lightbox="images/galeria-05.jpg".
+   - Substitua o bloco de placeholder por uma tag <img>:
+     <img src="images/galeria-05.jpg" alt="Descrição da foto" loading="lazy">
+
+DICAS DE QUALIDADE E PERFORMANCE:
+--------------------------------------------------------------------------------
+- As fotos serão exibidas em molduras reais com ajuste proporcional automático (object-fit: cover).
+- Para carregamento rápido no celular, prefira imagens de até 2MB a 3MB em formato JPG/JPEG ou WebP.

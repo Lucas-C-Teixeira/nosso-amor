@@ -1,8 +1,36 @@
-Coloque aqui os arquivos de musica em MP3.
+================================================================================
+GUIA DA TRILHA SONORA — NOSSOS TRÊS ANOS
+================================================================================
 
-Sugestoes de nomes ja configurados no codigo:
-- song1.mp3 para a musica principal
-- memoria-01.mp3, memoria-02.mp3, memoria-03.mp3 para os cartoes
-- star-soft.mp3 para o som suave das estrelas
+O site conta com um Player Editorial integrado completo, com controles de Play/Pause,
+Barra de Progresso interativa, Controle de Volume e Troca de Faixas.
 
-Se usar outros nomes, altere os caminhos em index.html e js/script.js.
+COMO COLOCAR SUAS MÚSICAS NO SITE (MÉTODO ULTRA SIMPLES):
+--------------------------------------------------------------------------------
+Basta salvar seus arquivos de áudio em formato MP3 diretamente nesta pasta (music/)
+com os seguintes nomes:
+
+1. song1.mp3       -> Canção Principal do Casal (Toca no topo da playlist)
+2. memoria-01.mp3  -> Trilha da Memória 01 (Primeiro Encontro)
+3. memoria-02.mp3  -> Trilha da Memória 02 (Viagens e Dias Felizes)
+
+Pronto! Assim que os arquivos estiverem aqui, basta clicar no botão de Play do site
+e a música tocará imediatamente, sem necessidade de editar nenhum código.
+
+COMO ADICIONAR MAIS MÚSICAS OU MUDAR NOMES/TÍTULOS:
+--------------------------------------------------------------------------------
+Se você quiser renomear as músicas ou adicionar mais faixas à playlist:
+1. Abra o arquivo js/script.js.
+2. No topo, no objeto APP_CONFIG, localize o bloco `playlist: [ ... ]`.
+3. Altere o título, o artista e o caminho do arquivo (src). Exemplo:
+   {
+     title: "Nossa Música Favorita",
+     artist: "Artista",
+     src: "music/minha-musica.mp3",
+     tag: "Especial"
+   }
+
+IMPORTANTE:
+- Por respeito a você e às diretrizes do projeto, nenhuma música fictícia ou protegida
+  por direitos autorais foi baixada automaticamente.
+- O reprodutor NÃO inicia o áudio sozinho (sem autoplay agressivo), respeitando sua vontade.
